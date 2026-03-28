@@ -1,0 +1,139 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+  canonical?: string
+}
+
+const {
+  title = 'Reparación de Electrodomésticos en Pamplona | Domestecnic',
+  description = 'Servicio técnico de electrodomésticos en Pamplona y Navarra. Reparamos lavadoras, frigoríficos, hornos, lavavajillas de Siemens, Bosch, Balay y más. Visita a domicilio. Reserva online.',
+  canonical = 'https://domestecnic.com',
+} = Astro.props
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://domestecnic.com/#business",
+      "name": "Domestecnic",
+      "description": "Servicio técnico especializado en reparación de electrodomésticos en Pamplona y Navarra. Especialistas en Siemens, Bosch y Balay.",
+      "url": "https://domestecnic.com",
+      "telephone": "+34634358045",
+      "email": "info@domestecnic.com",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": "Cash, Credit Card",
+      "areaServed": [
+        { "@type": "City", "name": "Pamplona" },
+        { "@type": "AdministrativeArea", "name": "Navarra" }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pamplona",
+        "addressRegion": "Navarra",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "42.8169",
+        "longitude": "-1.6432"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Reparación de electrodomésticos",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de lavadoras en Pamplona" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de frigoríficos en Pamplona" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de lavavajillas en Pamplona" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de hornos en Pamplona" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de secadoras en Pamplona" } }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "87",
+        "bestRating": "5"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta reparar una lavadora en Pamplona?",
+          "acceptedAnswer": { "@type": "Answer", "text": "El coste depende de la avería. El diagnóstico es gratuito y sin compromiso. La mayoría de reparaciones de lavadora en Pamplona están entre 60€ y 180€ incluyendo mano de obra y piezas." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Reparáis electrodomésticos Siemens en Pamplona?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, somos especialistas en la reparación de electrodomésticos Siemens en Pamplona y toda Navarra. También reparamos Bosch, Balay, Miele, AEG y más marcas." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tarda la reparación?",
+          "acceptedAnswer": { "@type": "Answer", "text": "El 90% de las reparaciones se resuelven en la primera visita a domicilio. Trabajamos con piezas originales y de recambio de calidad." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dais garantía en las reparaciones?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, todas nuestras reparaciones incluyen garantía de 3 meses en piezas y mano de obra." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿A qué zonas de Navarra llegáis?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Cubrimos Pamplona y toda el área metropolitana: Barañáin, Burlada, Huarte, Villava, Ansoáin, Zizur Mayor, Berriozar, Cizur, Noáin, Sarriguren y más municipios de Navarra." }
+        }
+      ]
+    }
+  ]
+}
+---
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Keywords semánticas -->
+    <meta name="keywords" content="reparación electrodomésticos Pamplona, servicio técnico Siemens Pamplona, reparar lavadora Pamplona, técnico electrodomésticos Navarra, reparación Bosch Balay Pamplona, servicio técnico electrodomésticos Navarra" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Domestecnic" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

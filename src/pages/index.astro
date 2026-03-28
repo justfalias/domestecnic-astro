@@ -1,0 +1,402 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const PHONE = '634 358 045'
+const PHONE_HREF = 'tel:+34634358045'
+const WA_URL = 'https://wa.me/34634358045?text=Hola%2C%20necesito%20reparar%20un%20electrodom%C3%A9stico%20en%20Pamplona'
+
+const MARCAS_DEST = [
+  { nombre: 'Siemens', logo: 'https://logo.clearbit.com/siemens.com' },
+  { nombre: 'Bosch',   logo: 'https://logo.clearbit.com/bosch.com' },
+  { nombre: 'Balay',   logo: 'https://logo.clearbit.com/balay.es' },
+]
+const MARCAS_RESTO = [
+  { nombre: 'Fagor',     logo: 'https://logo.clearbit.com/fagor.com' },
+  { nombre: 'Miele',     logo: 'https://logo.clearbit.com/miele.es' },
+  { nombre: 'AEG',       logo: 'https://logo.clearbit.com/aeg.es' },
+  { nombre: 'Electrolux',logo: 'https://logo.clearbit.com/electrolux.es' },
+  { nombre: 'Samsung',   logo: 'https://logo.clearbit.com/samsung.com' },
+  { nombre: 'LG',        logo: 'https://logo.clearbit.com/lg.com' },
+  { nombre: 'Zanussi',   logo: 'https://logo.clearbit.com/zanussi.es' },
+  { nombre: 'Teka',      logo: 'https://logo.clearbit.com/teka.com' },
+  { nombre: 'Beko',      logo: 'https://logo.clearbit.com/beko.com' },
+]
+
+const SERVICIOS = [
+  { nombre: 'Lavadoras',    desc: 'No centrifuga, pierde agua, hace ruido, no enciende...', emoji: '🫧' },
+  { nombre: 'Frigoríficos', desc: 'No enfría, acumula hielo, gotea, hace ruido...', emoji: '🧊' },
+  { nombre: 'Lavavajillas', desc: 'No lava bien, no desagua, no cierra, hace ruido...', emoji: '🍽️' },
+  { nombre: 'Hornos',       desc: 'No calienta, pantalla rota, no enciende, humo...', emoji: '🔥' },
+  { nombre: 'Secadoras',    desc: 'No seca, se para sola, hace ruido extraño...', emoji: '♨️' },
+  { nombre: 'Placas',       desc: 'Zona que no funciona, error en pantalla, no detecta...', emoji: '🫕' },
+  { nombre: 'Campanas',     desc: 'Motor roto, luz fundida, no extrae, hace ruido...', emoji: '💨' },
+  { nombre: 'Congeladores', desc: 'No congela, acumula hielo, gotea, hace ruido...', emoji: '❄️' },
+]
+
+const REVIEWS = [
+  { nombre: 'María García', barrio: 'Pamplona Centro', stars: 5, fecha: 'hace 2 semanas', texto: 'Vinieron el mismo día que llamé. Mi lavadora Siemens quedó perfecta en menos de una hora. Muy profesionales, limpios y con precio justo. Totalmente recomendables.', destacada: true },
+  { nombre: 'Carlos Tudela', barrio: 'Barañáin', stars: 5, fecha: 'hace 1 mes', texto: 'Repararon mi frigorífico Bosch sin problemas. Presupuesto sin compromiso y muy transparentes. El técnico muy amable y explicó todo perfectamente.', destacada: false },
+  { nombre: 'Ana Rekalde', barrio: 'Burlada', stars: 5, fecha: 'hace 3 semanas', texto: 'Excelente servicio. El lavavajillas llevaba semanas roto y lo arreglaron en la primera visita. Garantía de 3 meses incluida. Los tengo guardados para siempre.', destacada: true },
+  { nombre: 'Javier Iriarte', barrio: 'Zizur Mayor', stars: 5, fecha: 'hace 2 meses', texto: 'Servicio rápido y eficiente. Horno Balay reparado el mismo día. Precio muy razonable para lo que es. 100% recomendable.', destacada: false },
+  { nombre: 'Laura Ollo', barrio: 'Villava', stars: 5, fecha: 'hace 1 semana', texto: 'La lavadora hacía un ruido horrible. Vinieron, diagnosticaron y repararon en 45 minutos. Trato genial y precio justo. Sin duda los mejores de Pamplona.', destacada: true },
+  { nombre: 'Mikel Goñi', barrio: 'Ansoáin', stars: 4, fecha: 'hace 3 meses', texto: 'Buen servicio, vinieron puntuales y resolvieron el problema. El precio algo alto pero la calidad lo justifica. Repetiría.', destacada: false },
+]
+
+const ZONAS = ['Pamplona','Barañáin','Burlada','Huarte','Villava','Ansoáin','Zizur Mayor','Berriozar','Cizur','Noáin','Sarriguren','Beriáin','Estella','Tudela']
+---
+
+<Layout>
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <a href="/" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 bg-blue-700 rounded-xl flex items-center justify-center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="leading-none">
+            <span class="text-lg font-extrabold text-blue-700">DOMES</span><span class="text-lg font-extrabold text-orange-500">TECNIC</span>
+          </div>
+          <div class="text-[10px] text-gray-400 leading-none hidden sm:block">Pamplona · Navarra</div>
+        </div>
+      </a>
+      <div class="flex items-center gap-2">
+        <a href={PHONE_HREF} class="hidden md:flex items-center gap-1.5 text-sm font-bold text-gray-700 hover:text-blue-700 transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.66 18l.26-1.08z"/></svg>
+          {PHONE}
+        </a>
+        <a href={WA_URL} target="_blank" rel="noopener" class="hidden sm:flex items-center gap-1.5 bg-green-500 hover:bg-green-600 text-white text-sm font-bold px-3 py-2 rounded-lg transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          WhatsApp
+        </a>
+        <a href="#reserva" class="bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors">
+          Reservar
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 text-white">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+    <div class="relative max-w-6xl mx-auto px-4 py-20 md:py-28">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 bg-blue-800/60 border border-blue-600/40 rounded-full px-4 py-1.5 text-sm text-blue-200 mb-6">
+          <span class="w-2 h-2 bg-green-400 rounded-full inline-block" style="animation: pulse 2s infinite;"></span>
+          Disponible hoy · Pamplona y Navarra
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-5">
+          Tu electrodoméstico<br/>roto, <span class="text-orange-400">arreglado hoy.</span>
+        </h1>
+        <p class="text-lg text-blue-200 mb-8 leading-relaxed max-w-xl">
+          Técnicos especializados en <strong class="text-white">Siemens, Bosch y Balay</strong>. Reparamos en tu domicilio — lavadoras, frigoríficos, hornos, lavavajillas y más.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 mb-10">
+          <a href="#reserva" class="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-7 py-4 rounded-xl text-lg transition-all hover:scale-105 shadow-lg shadow-orange-500/30">
+            📅 Reservar visita
+          </a>
+          <a href={PHONE_HREF} class="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-7 py-4 rounded-xl transition-colors">
+            📞 {PHONE}
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-5 text-sm text-blue-200">
+          <span>✅ Presupuesto sin compromiso</span>
+          <span>✅ Garantía 3 meses en piezas</span>
+          <span>✅ +500 reparaciones en Navarra</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="bg-orange-500 text-white py-3">
+    <div class="max-w-6xl mx-auto px-4 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-sm font-semibold">
+      <span>🕐 Lun–Sáb · 8:00–20:00</span>
+      <span class="hidden sm:block opacity-40">|</span>
+      <span>⚡ Cita disponible el mismo día</span>
+      <span class="hidden sm:block opacity-40">|</span>
+      <span>🛡️ Garantía en todas las reparaciones</span>
+      <span class="hidden sm:block opacity-40">|</span>
+      <span>📍 Visita a domicilio</span>
+    </div>
+  </div>
+
+  <!-- REVIEWS BENTO -->
+  <section class="py-20 bg-gray-50" id="opiniones">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <span class="text-orange-500 font-bold text-sm uppercase tracking-widest">Opiniones reales de Google</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 mb-2">Lo que dicen nuestros clientes</h2>
+        <!-- Rating summary -->
+        <div class="flex items-center justify-center gap-3 mt-4">
+          <div class="flex gap-1">
+            {[1,2,3,4,5].map(() => <span class="text-amber-400 text-xl">★</span>)}
+          </div>
+          <span class="text-2xl font-extrabold text-gray-900">4.9</span>
+          <span class="text-gray-400 text-sm">· 87 opiniones en Google</span>
+        </div>
+      </div>
+
+      <!-- Bento grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
+        {REVIEWS.map((r, i) => (
+          <div class={`bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col gap-3 hover:shadow-md transition-shadow ${r.destacada ? 'md:row-span-1 ring-2 ring-orange-100' : ''}`}>
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                  {r.nombre.split(' ').map((n: string) => n[0]).join('').slice(0,2)}
+                </div>
+                <div>
+                  <p class="font-bold text-gray-900 text-sm leading-none">{r.nombre}</p>
+                  <p class="text-xs text-gray-400 mt-0.5">{r.barrio}</p>
+                </div>
+              </div>
+              <!-- Google G logo -->
+              <svg width="20" height="20" viewBox="0 0 24 24" class="flex-shrink-0 mt-1"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="flex gap-0.5">
+              {[1,2,3,4,5].map((s) => (
+                <span class={`text-base ${s <= r.stars ? 'text-amber-400' : 'text-gray-200'}`}>★</span>
+              ))}
+              <span class="text-xs text-gray-400 ml-1 self-center">{r.fecha}</span>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed flex-1">"{r.texto}"</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="https://g.page/domestecnic/review" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-blue-700 font-semibold text-sm hover:underline">
+          Ver todas las opiniones en Google →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARCAS -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-10">Especializados en las principales marcas</p>
+
+      <!-- Destacadas -->
+      <div class="flex flex-wrap justify-center gap-6 mb-8">
+        {MARCAS_DEST.map(m => (
+          <div class="flex flex-col items-center gap-3 bg-blue-50 border-2 border-blue-200 rounded-2xl px-10 py-6 hover:shadow-md transition-all">
+            <img src={m.logo} alt={`Reparación ${m.nombre} Pamplona`} width="72" height="40" class="object-contain h-10" loading="lazy" onerror="this.style.display='none'" />
+            <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">{m.nombre}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Resto -->
+      <div class="flex flex-wrap justify-center gap-3">
+        {MARCAS_RESTO.map(m => (
+          <div class="flex items-center gap-2.5 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 hover:border-gray-300 transition-all">
+            <img src={m.logo} alt={m.nombre} width="28" height="28" class="object-contain h-7 w-7" loading="lazy" onerror="this.style.display='none'" />
+            <span class="text-sm font-semibold text-gray-600">{m.nombre}</span>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-gray-400 text-xs mt-5">y muchas más marcas</p>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="py-20 bg-gray-50" id="servicios">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-orange-500 font-bold text-sm uppercase tracking-widest">Nuestros servicios</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 mb-3">¿Qué se ha estropeado?</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">Diagnóstico y reparación a domicilio en Pamplona y Navarra. El 90% de los casos se resuelven en la primera visita.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {SERVICIOS.map(s => (
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all">
+            <div class="text-3xl mb-3">{s.emoji}</div>
+            <h3 class="font-bold text-gray-900 mb-1">{s.nombre}</h3>
+            <p class="text-xs text-gray-400 leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="py-20 bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-orange-400 font-bold text-sm uppercase tracking-widest">Simple y sin sorpresas</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold mt-2">¿Cómo funciona?</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          { num: '01', titulo: 'Reserva tu visita', desc: 'Online o por teléfono. Elige día y franja horaria. El técnico llega puntual.', emoji: '📅' },
+          { num: '02', titulo: 'Diagnóstico gratuito', desc: 'Revisamos el aparato en tu domicilio y te damos presupuesto claro. Sin compromiso.', emoji: '🔍' },
+          { num: '03', titulo: 'Reparado y con garantía', desc: 'Reparamos en el momento siempre que sea posible. Garantía 3 meses incluida.', emoji: '✅' },
+        ].map(p => (
+          <div>
+            <div class="text-6xl font-black text-white/5 leading-none mb-4">{p.num}</div>
+            <div class="text-3xl mb-3">{p.emoji}</div>
+            <h3 class="font-bold text-xl mb-2">{p.titulo}</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVA -->
+  <section class="py-20 bg-white" id="reserva">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div>
+          <span class="text-orange-500 font-bold text-sm uppercase tracking-widest">Sin esperas</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 mb-4">Reserva tu visita hoy</h2>
+          <p class="text-gray-500 mb-8 leading-relaxed">Rellena el formulario y te confirmamos en menos de 10 minutos. Sin llamadas perdidas.</p>
+          <div class="space-y-4 mb-8">
+            {[
+              { emoji: '🕐', texto: 'Lunes a sábado, 8:00 a 20:00' },
+              { emoji: '📍', texto: 'Pamplona y toda Navarra' },
+              { emoji: '🛡️', texto: 'Garantía 3 meses en piezas' },
+              { emoji: '⚡', texto: '90% resueltos en primera visita' },
+            ].map(item => (
+              <div class="flex items-center gap-3 text-sm text-gray-600">
+                <div class="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 text-base">{item.emoji}</div>
+                {item.texto}
+              </div>
+            ))}
+          </div>
+          <div class="p-5 bg-green-50 border border-green-200 rounded-2xl">
+            <p class="text-sm font-bold text-green-800 mb-1">¿Prefieres WhatsApp?</p>
+            <a href={WA_URL} target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-green-700 font-semibold text-sm hover:text-green-900 transition-colors">
+              💬 Escríbenos directamente →
+            </a>
+          </div>
+        </div>
+        <div class="bg-gray-50 rounded-2xl border border-gray-200 p-7">
+          <form class="space-y-4" id="form-reserva">
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">Nombre</label>
+                <input type="text" required name="nombre" placeholder="Tu nombre" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">Teléfono</label>
+                <input type="tel" required name="telefono" placeholder="600 000 000" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">Electrodoméstico y marca</label>
+              <input type="text" required name="electrodomestico" placeholder="Ej: Lavadora Siemens WM14T790ES" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">¿Qué problema tiene?</label>
+              <textarea rows={3} required name="problema" placeholder="Ej: No centrifuga, hace ruido cuando..." class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white resize-none"></textarea>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">Día preferido</label>
+                <input type="date" required name="fecha" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">Franja horaria</label>
+                <select required name="franja" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+                  <option value="">Seleccionar...</option>
+                  <option>Mañana (9:00–13:00)</option>
+                  <option>Tarde (15:00–19:00)</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-xl text-base transition-all hover:scale-[1.02] shadow-lg shadow-orange-200">
+              📅 Solicitar cita gratuita
+            </button>
+            <p class="text-xs text-gray-400 text-center">Sin compromiso · Te llamamos para confirmar</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (SEO) -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-extrabold text-gray-900 mb-8 text-center">Preguntas frecuentes</h2>
+      <div class="space-y-4">
+        {[
+          { q: '¿Cuánto cuesta reparar una lavadora en Pamplona?', a: 'Depende de la avería. El diagnóstico es gratuito y sin compromiso. La mayoría de reparaciones están entre 60€ y 180€ incluyendo mano de obra y piezas.' },
+          { q: '¿Reparáis electrodomésticos Siemens en Pamplona?', a: 'Sí, somos especialistas en Siemens, Bosch y Balay en Pamplona y toda Navarra. También reparamos Miele, AEG, Electrolux, Samsung, LG y más marcas.' },
+          { q: '¿Cuánto tarda la reparación?', a: 'El 90% de las reparaciones se resuelven en la primera visita a domicilio. Trabajamos con piezas originales y de recambio de calidad.' },
+          { q: '¿Dais garantía en las reparaciones?', a: 'Sí, todas nuestras reparaciones incluyen garantía de 3 meses en piezas y mano de obra.' },
+          { q: '¿A qué zonas de Navarra llegáis?', a: 'Cubrimos Pamplona y toda el área metropolitana: Barañáin, Burlada, Huarte, Villava, Ansoáin, Zizur Mayor, Berriozar, Cizur, Noáin, Sarriguren y más.' },
+        ].map(faq => (
+          <details class="bg-white rounded-xl border border-gray-200 px-6 py-4 group">
+            <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
+              {faq.q}
+              <span class="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="text-gray-500 text-sm mt-3 leading-relaxed">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONAS -->
+  <section class="py-12 bg-white border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <p class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Servicio técnico a domicilio en toda Navarra</p>
+      <div class="flex flex-wrap justify-center gap-2 text-sm">
+        {ZONAS.map(z => (
+          <span class="bg-gray-50 border border-gray-200 rounded-full px-3 py-1 text-gray-500 hover:bg-blue-50 hover:border-blue-200 transition-colors cursor-default">{z}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-20 bg-gradient-to-r from-blue-900 to-blue-800 text-white text-center">
+    <div class="max-w-2xl mx-auto px-4">
+      <div class="text-5xl mb-6">🔧</div>
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-3">¿Tu electrodoméstico no funciona?</h2>
+      <p class="text-blue-200 mb-8 text-lg">Llámanos ahora o reserva online. Cita disponible hoy.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="#reserva" class="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all hover:scale-105 shadow-lg shadow-orange-500/30">
+          📅 Reservar visita
+        </a>
+        <a href={PHONE_HREF} class="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-8 py-4 rounded-xl transition-colors">
+          📞 {PHONE}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-gray-500 py-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <div>
+        <span class="font-extrabold text-white">DOMES</span><span class="font-extrabold text-orange-400">TECNIC</span>
+        <span class="text-gray-500 ml-2">· Reparación de electrodomésticos · Pamplona, Navarra</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href={PHONE_HREF} class="hover:text-white transition-colors">📞 {PHONE}</a>
+        <a href={WA_URL} target="_blank" rel="noopener" class="hover:text-green-400 transition-colors">💬 WhatsApp</a>
+      </div>
+    </div>
+    <div class="text-center text-xs text-gray-700 mt-4">© {new Date().getFullYear()} Domestecnic · Pamplona, Navarra · Todos los derechos reservados</div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href={WA_URL} target="_blank" rel="noopener"
+    class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-xl flex items-center justify-center transition-all hover:scale-110"
+    aria-label="Contactar por WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  </a>
+
+  <style>
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.5; } }
+    details summary::-webkit-details-marker { display: none; }
+  </style>
+</Layout>
