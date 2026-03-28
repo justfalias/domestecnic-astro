@@ -6,21 +6,28 @@ const PHONE_HREF = 'tel:+34634358045'
 const WA_URL = 'https://wa.me/34634358045?text=Hola%2C%20necesito%20reparar%20un%20electrodom%C3%A9stico%20en%20Pamplona'
 
 const MARCAS_DEST = [
-  { nombre: 'Siemens', logo: 'https://logo.clearbit.com/siemens.com' },
-  { nombre: 'Bosch',   logo: 'https://logo.clearbit.com/bosch.com' },
-  { nombre: 'Balay',   logo: 'https://logo.clearbit.com/balay.es' },
+  { nombre: 'Siemens', favicon: 'siemens.com' },
+  { nombre: 'Bosch',   favicon: 'bosch.com' },
+  { nombre: 'Balay',   favicon: 'balay.es' },
 ]
 const MARCAS_RESTO = [
-  { nombre: 'Fagor',     logo: 'https://logo.clearbit.com/fagor.com' },
-  { nombre: 'Miele',     logo: 'https://logo.clearbit.com/miele.es' },
-  { nombre: 'AEG',       logo: 'https://logo.clearbit.com/aeg.es' },
-  { nombre: 'Electrolux',logo: 'https://logo.clearbit.com/electrolux.es' },
-  { nombre: 'Samsung',   logo: 'https://logo.clearbit.com/samsung.com' },
-  { nombre: 'LG',        logo: 'https://logo.clearbit.com/lg.com' },
-  { nombre: 'Zanussi',   logo: 'https://logo.clearbit.com/zanussi.es' },
-  { nombre: 'Teka',      logo: 'https://logo.clearbit.com/teka.com' },
-  { nombre: 'Beko',      logo: 'https://logo.clearbit.com/beko.com' },
+  { nombre: 'Fagor',      favicon: 'fagor.com' },
+  { nombre: 'Miele',      favicon: 'miele.com' },
+  { nombre: 'AEG',        favicon: 'aeg.com' },
+  { nombre: 'Electrolux', favicon: 'electrolux.com' },
+  { nombre: 'Samsung',    favicon: 'samsung.com' },
+  { nombre: 'LG',         favicon: 'lg.com' },
+  { nombre: 'Zanussi',    favicon: 'zanussi.com' },
+  { nombre: 'Teka',       favicon: 'teka.com' },
+  { nombre: 'Beko',       favicon: 'beko.com' },
 ]
+
+// Logos SVG inline para marcas principales
+const LOGOS_SVG: Record<string, string> = {
+  'Siemens': `<svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="40" rx="4" fill="#009999"/><text x="60" y="27" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="white">Siemens</text></svg>`,
+  'Bosch': `<svg viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="40" rx="20" fill="#E0000C"/><text x="50" y="27" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="900" fill="white" letter-spacing="1">bosch</text></svg>`,
+  'Balay': `<svg viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg"><text x="50" y="30" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="900" fill="#003087" letter-spacing="-1">balay</text></svg>`,
+}
 
 const SERVICIOS = [
   { nombre: 'Lavadoras',    desc: 'No centrifuga, pierde agua, hace ruido, no enciende...', emoji: '🫧' },
@@ -181,21 +188,27 @@ const ZONAS = ['Pamplona','Barañáin','Burlada','Huarte','Villava','Ansoáin','
     <div class="max-w-6xl mx-auto px-4">
       <p class="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-10">Especializados en las principales marcas</p>
 
-      <!-- Destacadas -->
+      <!-- Destacadas: SVG inline logos -->
       <div class="flex flex-wrap justify-center gap-6 mb-8">
         {MARCAS_DEST.map(m => (
-          <div class="flex flex-col items-center gap-3 bg-blue-50 border-2 border-blue-200 rounded-2xl px-10 py-6 hover:shadow-md transition-all">
-            <img src={m.logo} alt={`Reparación ${m.nombre} Pamplona`} width="72" height="40" class="object-contain h-10" loading="lazy" onerror="this.style.display='none'" />
-            <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">{m.nombre}</span>
+          <div class="flex flex-col items-center gap-3 bg-blue-50 border-2 border-blue-200 rounded-2xl px-10 py-6 hover:shadow-md transition-all min-w-[140px]">
+            <div class="h-10 flex items-center justify-center w-full" set:html={LOGOS_SVG[m.nombre] ?? `<span class="text-lg font-black text-blue-800">${m.nombre}</span>`} />
+            <span class="text-xs font-bold text-blue-700 uppercase tracking-widest">{m.nombre}</span>
           </div>
         ))}
       </div>
 
-      <!-- Resto -->
+      <!-- Resto: Google Favicons -->
       <div class="flex flex-wrap justify-center gap-3">
         {MARCAS_RESTO.map(m => (
           <div class="flex items-center gap-2.5 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 hover:border-gray-300 transition-all">
-            <img src={m.logo} alt={m.nombre} width="28" height="28" class="object-contain h-7 w-7" loading="lazy" onerror="this.style.display='none'" />
+            <img
+              src={`https://www.google.com/s2/favicons?domain=${m.favicon}&sz=64`}
+              alt={m.nombre}
+              width="24" height="24"
+              class="rounded w-6 h-6 object-contain"
+              loading="lazy"
+            />
             <span class="text-sm font-semibold text-gray-600">{m.nombre}</span>
           </div>
         ))}
