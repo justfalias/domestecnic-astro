@@ -15,12 +15,10 @@ const SERVICIOS = [
 ]
 
 const REVIEWS = [
-  { nombre: 'María García', barrio: 'Pamplona Centro', stars: 5, tiempo: 'hace 2 semanas', texto: 'Vinieron el mismo día que llamé. Mi lavadora Siemens quedó perfecta en menos de una hora. Muy profesionales, limpios y con un precio muy justo. Los recomiendo sin dudar.', foto: 'MG' },
-  { nombre: 'Carlos Tudela', barrio: 'Barañáin', stars: 5, tiempo: 'hace 1 mes', texto: 'Repararon mi frigorífico Bosch sin ningún problema. Presupuesto sin compromiso y muy transparentes con todo. El técnico llegó puntual y fue muy amable. Volvería sin duda.', foto: 'CT' },
-  { nombre: 'Ana Rekalde', barrio: 'Burlada', stars: 5, tiempo: 'hace 3 semanas', texto: 'Excelente servicio. El lavavajillas lo arreglaron en la primera visita. Garantía de 3 meses incluida sin coste extra. Los tengo guardados para siempre en mi agenda.', foto: 'AR' },
-  { nombre: 'Javier Iriarte', barrio: 'Zizur Mayor', stars: 5, tiempo: 'hace 2 meses', texto: 'Horno Balay averiado y reparado el mismo día que llamé. Precio muy razonable para lo que es. Sin letra pequeña, sin sorpresas. 100% recomendable para toda la familia.', foto: 'JI' },
-  { nombre: 'Laura Ollo', barrio: 'Villava', stars: 5, tiempo: 'hace 1 semana', texto: 'La lavadora hacía un ruido horrible desde hacía días. Vinieron, diagnosticaron y repararon en 45 minutos. Trato genial, precios justos y todo explicado paso a paso.', foto: 'LO' },
-  { nombre: 'Mikel Goñi', barrio: 'Ansoáin', stars: 5, tiempo: 'hace 3 meses', texto: 'Muy buen servicio. Vinieron puntuales y resolvieron el problema con la secadora sin complicaciones. Repetiría sin duda y ya los he recomendado a varios vecinos.', foto: 'MG' },
+  { nombre: 'Juan Pablo Carretero', barrio: 'Pamplona', stars: 5, tiempo: 'Hace 5 meses', texto: 'Llamé un domingo a primera hora porque la lavadora dejó de funcionar, y a las dos horas lo tenía aquí. Dio con la avería al instante. Denis súper majo y atento siempre, comprobando otros electrodomésticos sin ponerme pega y resolviendo mis dudas. Muy profesional.', foto: 'JC' },
+  { nombre: 'Silvia Perete', barrio: 'Pamplona', stars: 5, tiempo: 'Hace 5 meses', texto: 'Un domingo se me estropeó la lavadora, llamé y en media hora estaba el técnico en mi casa. Persona encantadora y amable, precio muy bueno para ser domingo. Sin duda volveré a llamarlo si tengo alguna avería más. Muchas gracias por todo.', foto: 'SP' },
+  { nombre: 'DAVID', barrio: 'Pamplona', stars: 5, tiempo: 'Hace 5 meses', texto: 'Llamé sin conocer la empresa, me guié por las valoraciones y todo un acierto. Vino el mismo día a repararme un frigorífico. Muy serio y ordenado en su trabajo y amable con el cliente. Seguiré contando con su profesionalidad en reparaciones futuras.', foto: 'DA' },
+  { nombre: 'iñaki barado', barrio: 'Pamplona', stars: 5, tiempo: 'Hace 4 meses', texto: 'Servicio súper rápido y súper profesional. Los recomiendo totalmente. Además me comentaron que también tienen servicio de venta, no solo de reparación e instalación.', foto: 'IB' },
 ]
 
 const ZONAS = ['Pamplona','Barañáin','Burlada','Huarte','Villava','Ansoáin','Zizur Mayor','Berriozar','Cizur','Noáin','Sarriguren','Beriáin','Estella','Tudela']
@@ -131,7 +129,7 @@ const MARCAS = [
           <div style="display:flex;gap:2px;">
             {[1,2,3,4,5].map(() => <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
           </div>
-          <span style="color:#93c5fd;font-size:.8rem;font-weight:600;">4,7 · 53 opiniones en Google</span>
+          <span style="color:#93c5fd;font-size:.8rem;font-weight:600;">4,7 · 207 opiniones en Google</span>
         </div>
 
         <h1 class="fade-up-2" style="font-size:clamp(2.75rem,5.5vw,4.5rem);font-weight:900;color:white;line-height:1.05;letter-spacing:-.03em;margin-bottom:24px;">
@@ -212,7 +210,7 @@ const MARCAS = [
     <div class="stats-grid" style="display:grid;grid-template-columns:repeat(4,1fr);">
       {[
         { num: '+1.200', label: 'Electrodomésticos reparados', sub: 'en Pamplona y Navarra', icon: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z' },
-        { num: '4,7★', label: 'Valoración media Google', sub: '53 opiniones verificadas', icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z' },
+        { num: '4,7★', label: 'Valoración media Google', sub: '207 opiniones verificadas', icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z' },
         { num: '90%', label: 'Resuelto en primera visita', sub: 'sin segunda llamada', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
         { num: 'Sáb', label: 'Disponible los sábados', sub: 'Lun–Sáb · 8:00–20:00', icon: 'M8 2v4 M16 2v4 M3 10h18 M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z' },
       ].map(s => (
@@ -349,7 +347,7 @@ const MARCAS = [
           <div style="display:flex;gap:2px;justify-content:center;margin:6px 0;">
             {[1,2,3,4,5].map(() => <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
           </div>
-          <div style="color:#94a3b8;font-size:.7rem;font-weight:600;">53 opiniones</div>
+          <div style="color:#94a3b8;font-size:.7rem;font-weight:600;">207 opiniones</div>
         </div>
         <div style="width:1px;height:60px;background:#f1f5f9;"></div>
         <svg width="32" height="32" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
