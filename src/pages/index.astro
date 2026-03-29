@@ -15,10 +15,13 @@ const SERVICIOS = [
 ]
 
 const REVIEWS = [
-  { nombre: 'Juan Pablo Carretero', barrio: 'Pamplona', stars: 5, tiempo: 'Hace 5 meses', texto: 'Llamé un domingo a primera hora porque la lavadora dejó de funcionar, y a las dos horas lo tenía aquí. Dio con la avería al instante. Denis súper majo y atento siempre, comprobando otros electrodomésticos sin ponerme pega y resolviendo mis dudas. Muy profesional.', foto: 'JC' },
-  { nombre: 'Silvia Perete', barrio: 'Pamplona', stars: 5, tiempo: 'Hace 5 meses', texto: 'Un domingo se me estropeó la lavadora, llamé y en media hora estaba el técnico en mi casa. Persona encantadora y amable, precio muy bueno para ser domingo. Sin duda volveré a llamarlo si tengo alguna avería más. Muchas gracias por todo.', foto: 'SP' },
-  { nombre: 'DAVID', barrio: 'Pamplona', stars: 5, tiempo: 'Hace 5 meses', texto: 'Llamé sin conocer la empresa, me guié por las valoraciones y todo un acierto. Vino el mismo día a repararme un frigorífico. Muy serio y ordenado en su trabajo y amable con el cliente. Seguiré contando con su profesionalidad en reparaciones futuras.', foto: 'DA' },
-  { nombre: 'iñaki barado', barrio: 'Pamplona', stars: 5, tiempo: 'Hace 4 meses', texto: 'Servicio súper rápido y súper profesional. Los recomiendo totalmente. Además me comentaron que también tienen servicio de venta, no solo de reparación e instalación.', foto: 'IB' },
+  { nombre: 'Juan Pablo Carretero', stars: 5, tiempo: 'Hace 5 meses', texto: 'Llamé un domingo a primera hora porque la lavadora dejó de funcionar, y a las dos horas lo tenía aquí. Dio con la avería al instante. Denis súper majo y atento, comprobando otros electrodomésticos sin ponerme pega y resolviendo mis dudas. Muy profesional.', foto: 'https://lh3.googleusercontent.com/a-/ALV-UjUxtq5ElOd6TtXHyU_Q6TWupFOE5XZEC3smvxPdntIe-DFQDPsu=s128-c0x00000000-cc-rp-mo', iniciales: 'JC' },
+  { nombre: 'Silvia Perete', stars: 5, tiempo: 'Hace 5 meses', texto: 'Un domingo se me estropeó la lavadora, llamé y en media hora estaba el técnico en mi casa. Persona encantadora y amable, precio muy bueno para ser domingo. Sin duda volveré a llamarlo si tengo alguna avería más.', foto: 'https://lh3.googleusercontent.com/a/ACg8ocL3PzXJgkccwhXZ_1y0QqTHyKIB7TIQtI2V4ek6wpO9NIxS=s128-c0x00000000-cc-rp-mo', iniciales: 'SP' },
+  { nombre: 'DAVID', stars: 5, tiempo: 'Hace 5 meses', texto: 'Llamé sin conocer la empresa, me guié por las valoraciones y todo un acierto. Vino el mismo día a repararme un frigorífico. Muy serio y ordenado en su trabajo y amable con el cliente. Seguiré contando con su profesionalidad.', foto: 'https://lh3.googleusercontent.com/a/ACg8ocLKJY9jP3w7MW6cTjHEtKo5--Rwtgw2_VKaDL3KbWkvexU58w=s128-c0x00000000-cc-rp-mo', iniciales: 'DA' },
+  { nombre: 'iñaki barado', stars: 5, tiempo: 'Hace 4 meses', texto: 'Servicio súper rápido y súper profesional. Los recomiendo totalmente. Además me comentaron que también tienen servicio de venta, no solo de reparación e instalación.', foto: 'https://lh3.googleusercontent.com/a/ACg8ocLKNHqsbOWfC3Oph8TKEwC9475jjdPiZQOkHtiHOq_hDz81WA=s128-c0x00000000-cc-rp-mo', iniciales: 'IB' },
+  { nombre: 'Viktoriia Paramonova', stars: 5, tiempo: 'Esta semana', texto: 'Rápido, profesional y de alta calidad. ¡Satisfecho con el servicio!', foto: 'https://lh3.googleusercontent.com/a/ACg8ocID7fQftFFmKaqkbQofhC3a_QAF-mHGab-K_jtsctdBK-2E6g=s128-c0x00000000-cc-rp-mo', iniciales: 'VP' },
+  { nombre: 'Анжела мадлен', stars: 5, tiempo: 'Esta semana', texto: 'Muy contenta. Que buena persona Denis. Es un artista. Mi electrodoméstico ahora está perfecta. Su mente y su corazón y sus manos son de Dios.', foto: 'https://lh3.googleusercontent.com/a/ACg8ocLQrStQVPEa3iAmx-yOodvrXRHlA30PvbgC6jz3WRjNdOw1Tw=s128-c0x00000000-cc-rp-mo', iniciales: 'AM' },
+  { nombre: 'Olena Liubiieva', stars: 5, tiempo: 'Esta semana', texto: 'Excelente profesional. Rápido, honesto y muy eficaz. Trabajo impecable y trato inmejorable. Lo recomiendo al 100%.', foto: 'https://lh3.googleusercontent.com/a-/ALV-UjVJM-nOCzu2afhH0-fr5i8JnEB_-V9Ju27Ye3CRLWsF3xAbv2s=s128-c0x00000000-cc-rp-mo', iniciales: 'OL' },
 ]
 
 const ZONAS = ['Pamplona','Barañáin','Burlada','Huarte','Villava','Ansoáin','Zizur Mayor','Berriozar','Cizur','Noáin','Sarriguren','Beriáin','Estella','Tudela']
@@ -333,14 +336,15 @@ const MARCAS = [
 </section>
 
 <!-- REVIEWS -->
-<section style="padding:96px 0;background:#f8fafc;" id="opiniones">
-  <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
+<section style="padding:96px 0 80px;background:#f8fafc;overflow:hidden;" id="opiniones">
+  <div style="max-width:1200px;margin:0 auto;">
     <!-- Header -->
-    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:56px;">
+    <div style="padding:0 24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px;">
       <div>
-        <span class="section-label">Opiniones reales</span>
+        <span class="section-label">Opiniones reales · Google</span>
         <h2 class="section-title">Lo que dicen<br/>nuestros clientes.</h2>
       </div>
+      <!-- Rating box -->
       <div style="display:flex;align-items:center;gap:20px;background:white;border:1.5px solid #e2e8f0;border-radius:20px;padding:20px 28px;">
         <div style="text-align:center;">
           <div style="font-size:3rem;font-weight:900;color:#0f172a;line-height:1;">4,7</div>
@@ -354,32 +358,93 @@ const MARCAS = [
       </div>
     </div>
 
-    <!-- Grid reviews -->
-    <div class="reviews-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
-      {REVIEWS.map((r, i) => (
-        <article class="review-card" style={i === 0 ? 'border-color:#fed7aa;' : ''}>
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
-            <div style="display:flex;align-items:center;gap:12px;">
-              <div style={`width:44px;height:44px;border-radius:50%;background:${['linear-gradient(135deg,#1d4ed8,#3b82f6)','linear-gradient(135deg,#059669,#10b981)','linear-gradient(135deg,#7c3aed,#a78bfa)','linear-gradient(135deg,#dc2626,#f87171)','linear-gradient(135deg,#d97706,#fbbf24)','linear-gradient(135deg,#0891b2,#38bdf8)'][i%6]};display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:.8rem;flex-shrink:0;`}>
-                {r.foto}
+    <!-- Carrusel -->
+    <div style="position:relative;">
+      <!-- Botones nav desktop -->
+      <button id="rev-prev" aria-label="Anterior" onclick="document.getElementById('rev-track').scrollBy({left:-340,behavior:'smooth'})"
+        style="position:absolute;left:8px;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;background:white;border:1.5px solid #e2e8f0;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:all .2s;"
+        onmouseover="this.style.background='#1d4ed8';this.style.borderColor='#1d4ed8';this.querySelector('svg').style.stroke='white'"
+        onmouseout="this.style.background='white';this.style.borderColor='#e2e8f0';this.querySelector('svg').style.stroke='#0f172a'">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button id="rev-next" aria-label="Siguiente" onclick="document.getElementById('rev-track').scrollBy({left:340,behavior:'smooth'})"
+        style="position:absolute;right:8px;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;background:white;border:1.5px solid #e2e8f0;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:all .2s;"
+        onmouseover="this.style.background='#1d4ed8';this.style.borderColor='#1d4ed8';this.querySelector('svg').style.stroke='white'"
+        onmouseout="this.style.background='white';this.style.borderColor='#e2e8f0';this.querySelector('svg').style.stroke='#0f172a'">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+
+      <!-- Track scroll-snap -->
+      <div id="rev-track" style="display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;padding:8px 64px 20px;">
+        {REVIEWS.map((r) => (
+          <article style="flex:0 0 min(340px,82vw);scroll-snap-align:start;background:white;border-radius:20px;padding:28px;border:1.5px solid #f1f5f9;box-shadow:0 2px 16px rgba(0,0,0,.04);">
+            <!-- Header card -->
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <img
+                  src={r.foto}
+                  alt={r.nombre}
+                  width="44" height="44"
+                  style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;"
+                  loading="lazy"
+                  onerror={`this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='flex'`}
+                />
+                <div style="display:none;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1d4ed8,#3b82f6);align-items:center;justify-content:center;color:white;font-weight:800;font-size:.8rem;flex-shrink:0;">{r.iniciales}</div>
+                <div>
+                  <p style="font-weight:700;color:#0f172a;font-size:.875rem;line-height:1.3;">{r.nombre}</p>
+                  <p style="color:#94a3b8;font-size:.7rem;margin-top:3px;">{r.tiempo}</p>
+                </div>
               </div>
-              <div>
-                <p style="font-weight:700;color:#0f172a;font-size:.875rem;">{r.nombre}</p>
-                <p style="color:#94a3b8;font-size:.72rem;margin-top:1px;">{r.barrio}</p>
-              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
             </div>
-            <svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          </div>
-          <div style="display:flex;gap:2px;margin-bottom:14px;">
-            {[1,2,3,4,5].map(s => <svg width="13" height="13" viewBox="0 0 24 24" fill={s<=r.stars?'#f59e0b':'#e2e8f0'}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
-            <span style="color:#94a3b8;font-size:.7rem;margin-left:6px;align-self:center;">{r.tiempo}</span>
-          </div>
-          <p style="color:#475569;font-size:.875rem;line-height:1.75;">&ldquo;{r.texto}&rdquo;</p>
-        </article>
+            <!-- Estrellas -->
+            <div style="display:flex;gap:2px;margin-bottom:14px;">
+              {[1,2,3,4,5].map(() => <svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
+            </div>
+            <!-- Texto -->
+            <p style="color:#475569;font-size:.875rem;line-height:1.75;">&ldquo;{r.texto}&rdquo;</p>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <!-- Dots -->
+    <div id="rev-dots" style="display:flex;justify-content:center;gap:8px;margin-top:16px;padding:0 24px;">
+      {REVIEWS.map((_, i) => (
+        <button
+          onclick={`document.getElementById('rev-track').scrollTo({left:${i}*356,behavior:'smooth'})`}
+          style={`width:${i===0?'24px':'8px'};height:8px;border-radius:100px;border:none;cursor:pointer;transition:all .3s;background:${i===0?'#1d4ed8':'#cbd5e1'};`}
+          aria-label={`Ir a reseña ${i+1}`}
+        />
       ))}
     </div>
   </div>
+
+  <!-- Link Google -->
+  <div style="text-align:center;margin-top:28px;">
+    <a href="https://www.google.com/maps/place/ChIJ84UuTLyTUA0RHnBr8ocwwhI" target="_blank" rel="noopener"
+      style="color:#1d4ed8;font-weight:600;font-size:.875rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+      Ver las 207 opiniones en Google
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
 </section>
+
+<script>
+// Actualizar dots al hacer scroll
+const track = document.getElementById('rev-track');
+const dots = document.querySelectorAll('#rev-dots button');
+if (track && dots.length) {
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / 356);
+    dots.forEach((d, i) => {
+      const active = i === idx;
+      (d as HTMLElement).style.width = active ? '24px' : '8px';
+      (d as HTMLElement).style.background = active ? '#1d4ed8' : '#cbd5e1';
+    });
+  }, { passive: true });
+}
+</script>
 
 <!-- RESERVA -->
 <section style="padding:96px 0;background:white;" id="reserva">
