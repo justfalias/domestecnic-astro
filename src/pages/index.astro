@@ -22,380 +22,424 @@ const MARCAS_RESTO = [
   { nombre: 'Beko',       favicon: 'beko.com' },
 ]
 
-
-
 const SERVICIOS = [
-  { nombre: 'Lavadoras',    desc: 'No centrifuga, pierde agua, hace ruido, no enciende...', emoji: '🫧' },
-  { nombre: 'Frigoríficos', desc: 'No enfría, acumula hielo, gotea, hace ruido...', emoji: '🧊' },
-  { nombre: 'Lavavajillas', desc: 'No lava bien, no desagua, no cierra, hace ruido...', emoji: '🍽️' },
-  { nombre: 'Hornos',       desc: 'No calienta, pantalla rota, no enciende, humo...', emoji: '🔥' },
-  { nombre: 'Secadoras',    desc: 'No seca, se para sola, hace ruido extraño...', emoji: '♨️' },
-  { nombre: 'Placas',       desc: 'Zona que no funciona, error en pantalla, no detecta...', emoji: '🫕' },
-  { nombre: 'Campanas',     desc: 'Motor roto, luz fundida, no extrae, hace ruido...', emoji: '💨' },
-  { nombre: 'Congeladores', desc: 'No congela, acumula hielo, gotea, hace ruido...', emoji: '❄️' },
+  { nombre: 'Lavadoras', desc: 'No centrifuga, pierde agua, hace ruido, no enciende', icon: 'M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z' },
+  { nombre: 'Frigoríficos', desc: 'No enfría, acumula hielo, gotea, hace ruido', icon: 'M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM6 4h12v9H6V4zm0 11h12v5H6v-5z' },
+  { nombre: 'Lavavajillas', desc: 'No lava bien, no desagua, no cierra, hace ruido', icon: 'M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z' },
+  { nombre: 'Hornos', desc: 'No calienta, pantalla rota, no enciende, humo', icon: 'M20 3H4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm1 5H3v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8zm-9 9H8v-2h4v2zm5 0h-2v-2h2v2zM8 13H6v-2h2v2zm5 0h-4v-2h4v2zm4 0h-2v-2h2v2z' },
+  { nombre: 'Secadoras', desc: 'No seca, se para sola, hace ruido extraño', icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z' },
+  { nombre: 'Placas', desc: 'Zona que no funciona, error en pantalla, no detecta', icon: 'M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z' },
+  { nombre: 'Campanas', desc: 'Motor roto, luz fundida, no extrae, hace ruido', icon: 'M3 18l9-15 9 15H3zm9-11L5.5 17h13L12 7z' },
+  { nombre: 'Congeladores', desc: 'No congela, acumula hielo, gotea, hace ruido', icon: 'M12 2l3 6H9l3-6zm0 20l-3-6h6l-3 6zM2 12l6-3v6L2 12zm20 0l-6 3V9l6 3zM5.64 5.64l4.95 1.77-1.77 4.95-4.95-1.77 1.77-4.95zm12.72 12.72l-4.95-1.77 1.77-4.95 4.95 1.77-1.77 4.95zm-12.72 0l-1.77-4.95 4.95-1.77 1.77 4.95-4.95 1.77zm12.72-12.72L16.59 7.41l-1.77 4.95-4.95-1.77 1.77-4.95 4.95 1.77z' },
 ]
 
 const REVIEWS = [
-  { nombre: 'María García', barrio: 'Pamplona Centro', stars: 5, fecha: 'hace 2 semanas', texto: 'Vinieron el mismo día que llamé. Mi lavadora Siemens quedó perfecta en menos de una hora. Muy profesionales, limpios y con precio justo. Totalmente recomendables.', destacada: true },
-  { nombre: 'Carlos Tudela', barrio: 'Barañáin', stars: 5, fecha: 'hace 1 mes', texto: 'Repararon mi frigorífico Bosch sin problemas. Presupuesto sin compromiso y muy transparentes. El técnico muy amable y explicó todo perfectamente.', destacada: false },
-  { nombre: 'Ana Rekalde', barrio: 'Burlada', stars: 5, fecha: 'hace 3 semanas', texto: 'Excelente servicio. El lavavajillas llevaba semanas roto y lo arreglaron en la primera visita. Garantía de 3 meses incluida. Los tengo guardados para siempre.', destacada: true },
-  { nombre: 'Javier Iriarte', barrio: 'Zizur Mayor', stars: 5, fecha: 'hace 2 meses', texto: 'Servicio rápido y eficiente. Horno Balay reparado el mismo día. Precio muy razonable para lo que es. 100% recomendable.', destacada: false },
-  { nombre: 'Laura Ollo', barrio: 'Villava', stars: 5, fecha: 'hace 1 semana', texto: 'La lavadora hacía un ruido horrible. Vinieron, diagnosticaron y repararon en 45 minutos. Trato genial y precio justo. Sin duda los mejores de Pamplona.', destacada: true },
-  { nombre: 'Mikel Goñi', barrio: 'Ansoáin', stars: 4, fecha: 'hace 3 meses', texto: 'Buen servicio, vinieron puntuales y resolvieron el problema. El precio algo alto pero la calidad lo justifica. Repetiría.', destacada: false },
+  { nombre: 'María García', barrio: 'Pamplona Centro', stars: 5, fecha: 'hace 2 semanas', texto: 'Vinieron el mismo día que llamé. Mi lavadora Siemens quedó perfecta en menos de una hora. Muy profesionales, limpios y con precio justo.', destacada: true },
+  { nombre: 'Carlos Tudela', barrio: 'Barañáin', stars: 5, fecha: 'hace 1 mes', texto: 'Repararon mi frigorífico Bosch sin problemas. Presupuesto sin compromiso y muy transparentes. El técnico muy amable.', destacada: false },
+  { nombre: 'Ana Rekalde', barrio: 'Burlada', stars: 5, fecha: 'hace 3 semanas', texto: 'Excelente servicio. El lavavajillas lo arreglaron en la primera visita. Garantía de 3 meses incluida. Los tengo guardados para siempre.', destacada: true },
+  { nombre: 'Javier Iriarte', barrio: 'Zizur Mayor', stars: 5, fecha: 'hace 2 meses', texto: 'Horno Balay reparado el mismo día. Precio muy razonable para lo que es. 100% recomendable.', destacada: false },
+  { nombre: 'Laura Ollo', barrio: 'Villava', stars: 5, fecha: 'hace 1 semana', texto: 'La lavadora hacía un ruido horrible. Vinieron, diagnosticaron y repararon en 45 minutos. Trato genial y precio justo.', destacada: true },
+  { nombre: 'Mikel Goñi', barrio: 'Ansoáin', stars: 4, fecha: 'hace 3 meses', texto: 'Buen servicio, vinieron puntuales y resolvieron el problema. Repetiría sin duda.', destacada: false },
 ]
 
 const ZONAS = ['Pamplona','Barañáin','Burlada','Huarte','Villava','Ansoáin','Zizur Mayor','Berriozar','Cizur','Noáin','Sarriguren','Beriáin','Estella','Tudela']
 ---
 
 <Layout>
-  <!-- NAV -->
-  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-      <a href="/" class="flex items-center gap-2.5">
-        <div class="w-9 h-9 bg-blue-700 rounded-xl flex items-center justify-center">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-          </svg>
-        </div>
-        <div>
-          <div class="leading-none">
-            <span class="text-lg font-extrabold text-blue-700">DOMES</span><span class="text-lg font-extrabold text-orange-500">TECNIC</span>
-          </div>
-          <div class="text-[10px] text-gray-400 leading-none hidden sm:block">Pamplona · Navarra</div>
-        </div>
+<style>
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  @keyframes pulse-ring { 0%{transform:scale(1);opacity:.4} 100%{transform:scale(1.6);opacity:0} }
+  @keyframes slide-up { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-pulse-ring::before {
+    content:''; position:absolute; inset:0; border-radius:50%;
+    background:inherit; animation:pulse-ring 2s ease-out infinite;
+  }
+
+  details summary::-webkit-details-marker { display:none; }
+  details[open] .chevron { transform: rotate(180deg); }
+
+  .service-card:hover .service-icon { transform: scale(1.1); }
+  .service-card { transition: transform .2s, box-shadow .2s; }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,.08); }
+
+  .review-card { transition: box-shadow .2s; }
+  .review-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,.08); }
+
+  .brand-card { transition: all .2s; }
+  .brand-card:hover { transform: translateY(-2px); }
+</style>
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+  <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 bg-blue-700 rounded-2xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+        </svg>
+      </div>
+      <div class="leading-none">
+        <span class="text-xl font-black text-blue-700 tracking-tight">DOMES</span><span class="text-xl font-black text-orange-500 tracking-tight">TECNIC</span>
+        <div class="text-[10px] font-medium text-gray-400 mt-0.5 hidden sm:block tracking-widest uppercase">Pamplona · Navarra</div>
+      </div>
+    </a>
+    <nav class="flex items-center gap-2">
+      <a href={PHONE_HREF} class="hidden md:flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-blue-700 transition-colors px-3 py-2">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.66 18l.26-1.08z"/></svg>
+        {PHONE}
       </a>
-      <div class="flex items-center gap-2">
-        <a href={PHONE_HREF} class="hidden md:flex items-center gap-1.5 text-sm font-bold text-gray-700 hover:text-blue-700 transition-colors">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.66 18l.26-1.08z"/></svg>
-          {PHONE}
-        </a>
-        <a href={WA_URL} target="_blank" rel="noopener" class="hidden sm:flex items-center gap-1.5 bg-green-500 hover:bg-green-600 text-white text-sm font-bold px-3 py-2 rounded-lg transition-colors">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-          WhatsApp
-        </a>
-        <a href="#reserva" class="bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors">
-          Reservar
-        </a>
-      </div>
-    </div>
-  </nav>
+      <a href={WA_URL} target="_blank" rel="noopener" class="hidden sm:flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-bold px-4 py-2 rounded-xl transition-colors shadow-sm">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+      <a href="#reserva" class="bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-colors shadow-sm">
+        Reservar visita
+      </a>
+    </nav>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 text-white">
-    <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
-    <div class="relative max-w-6xl mx-auto px-4 py-20 md:py-28">
-      <div class="max-w-2xl">
-        <div class="inline-flex items-center gap-2 bg-blue-800/60 border border-blue-600/40 rounded-full px-4 py-1.5 text-sm text-blue-200 mb-6">
-          <span class="w-2 h-2 bg-green-400 rounded-full inline-block" style="animation: pulse 2s infinite;"></span>
-          Disponible hoy · Pamplona y Navarra
+<!-- HERO -->
+<section class="relative overflow-hidden" style="background: linear-gradient(145deg, #020617 0%, #0f172a 40%, #1e3a8a 80%, #1d4ed8 100%); min-height: 92vh; display: flex; align-items: center;">
+  <!-- Geometric shapes -->
+  <div style="position:absolute;top:-200px;right:-200px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(29,78,216,.25) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-150px;left:-150px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.15) 0%,transparent 70%);pointer-events:none;"></div>
+  <!-- Grid pattern -->
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;"></div>
+
+  <div class="relative max-w-6xl mx-auto px-5 py-24 w-full">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <!-- Availability badge -->
+        <div class="inline-flex items-center gap-2.5 mb-8" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:8px 18px;">
+          <span style="width:8px;height:8px;background:#4ade80;border-radius:50%;display:inline-block;box-shadow:0 0 8px #4ade80;"></span>
+          <span style="color:#93c5fd;font-size:14px;font-weight:600;letter-spacing:.02em;">Disponible hoy · Pamplona y Navarra</span>
         </div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-5">
-          Tu electrodoméstico<br/>roto, <span class="text-orange-400">arreglado hoy.</span>
+
+        <h1 style="font-size:clamp(2.5rem,5vw,3.75rem);font-weight:900;color:white;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-.02em;">
+          Tu electrodoméstico<br/>roto, <span style="color:#fb923c;">arreglado hoy.</span>
         </h1>
-        <p class="text-lg text-blue-200 mb-8 leading-relaxed max-w-xl">
-          Técnicos especializados en <strong class="text-white">Siemens, Bosch y Balay</strong>. Reparamos en tu domicilio — lavadoras, frigoríficos, hornos, lavavajillas y más.
+
+        <p style="font-size:1.125rem;color:#94a3b8;line-height:1.75;margin-bottom:2.5rem;max-width:480px;">
+          Técnicos especializados en <strong style="color:white;font-weight:700;">Siemens, Bosch y Balay</strong>. Reparamos lavadoras, frigoríficos, hornos y más — en tu domicilio, el mismo día.
         </p>
-        <div class="flex flex-col sm:flex-row gap-3 mb-10">
-          <a href="#reserva" class="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-7 py-4 rounded-xl text-lg transition-all hover:scale-105 shadow-lg shadow-orange-500/30">
-            📅 Reservar visita
+
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:2.5rem;">
+          <a href="#reserva" style="display:inline-flex;align-items:center;gap:10px;background:#f97316;color:white;font-weight:700;padding:16px 28px;border-radius:14px;font-size:1rem;text-decoration:none;transition:all .2s;box-shadow:0 8px 24px rgba(249,115,22,.35);"
+            onmouseover="this.style.background='#ea580c';this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.background='#f97316';this.style.transform='none'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Reservar visita
           </a>
-          <a href={PHONE_HREF} class="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-7 py-4 rounded-xl transition-colors">
-            📞 {PHONE}
+          <a href={PHONE_HREF} style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);color:white;font-weight:600;padding:16px 28px;border-radius:14px;font-size:1rem;text-decoration:none;transition:all .2s;"
+            onmouseover="this.style.background='rgba(255,255,255,.14)'"
+            onmouseout="this.style.background='rgba(255,255,255,.08)'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.66 18l.26-1.08z"/></svg>
+            {PHONE}
           </a>
         </div>
-        <div class="flex flex-wrap gap-5 text-sm text-blue-200">
-          <span>✅ Presupuesto sin compromiso</span>
-          <span>✅ Garantía 3 meses en piezas</span>
-          <span>✅ +500 reparaciones en Navarra</span>
+
+        <div style="display:flex;flex-wrap:wrap;gap:20px;">
+          {[
+            ['Presupuesto gratuito', '#22c55e'],
+            ['Garantía 3 meses', '#22c55e'],
+            ['+500 reparaciones', '#22c55e'],
+          ].map(([txt, color]) => (
+            <span style={`display:inline-flex;align-items:center;gap:8px;color:#94a3b8;font-size:.875rem;font-weight:500;`}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              {txt}
+            </span>
+          ))}
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- TRUST BAR -->
-  <div class="bg-orange-500 text-white py-3">
-    <div class="max-w-6xl mx-auto px-4 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-sm font-semibold">
-      <span>🕐 Lun–Sáb · 8:00–20:00</span>
-      <span class="hidden sm:block opacity-40">|</span>
-      <span>⚡ Cita disponible el mismo día</span>
-      <span class="hidden sm:block opacity-40">|</span>
-      <span>🛡️ Garantía en todas las reparaciones</span>
-      <span class="hidden sm:block opacity-40">|</span>
-      <span>📍 Visita a domicilio</span>
+      <!-- Stats card -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        {[
+          { num: '4.9★', label: 'Valoración media', sub: '87 opiniones en Google' },
+          { num: '+500', label: 'Reparaciones', sub: 'en Pamplona y Navarra' },
+          { num: '90%', label: 'Primera visita', sub: 'resuelto en el momento' },
+          { num: '3 meses', label: 'Garantía', sub: 'en piezas y mano de obra' },
+        ].map(s => (
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:24px 20px;backdrop-filter:blur(8px);">
+            <div style="font-size:1.75rem;font-weight:900;color:white;letter-spacing:-.02em;line-height:1;">{s.num}</div>
+            <div style="color:#93c5fd;font-weight:700;font-size:.875rem;margin-top:8px;">{s.label}</div>
+            <div style="color:#475569;font-size:.75rem;margin-top:4px;">{s.sub}</div>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- REVIEWS BENTO -->
-  <section class="py-20 bg-gray-50" id="opiniones">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-10">
-        <span class="text-orange-500 font-bold text-sm uppercase tracking-widest">Opiniones reales de Google</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 mb-2">Lo que dicen nuestros clientes</h2>
-        <!-- Rating summary -->
-        <div class="flex items-center justify-center gap-3 mt-4">
-          <div class="flex gap-1">
-            {[1,2,3,4,5].map(() => <span class="text-amber-400 text-xl">★</span>)}
-          </div>
-          <span class="text-2xl font-extrabold text-gray-900">4.9</span>
-          <span class="text-gray-400 text-sm">· 87 opiniones en Google</span>
+<!-- TRUST BAR -->
+<div style="background:#f97316;">
+  <div class="max-w-6xl mx-auto px-5 py-3.5 flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+    {[
+      ['Lun–Sáb · 8:00–20:00', 'M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm.5 5v6l4 2-.7 1.2L11 14V7h1.5z'],
+      ['Cita disponible hoy', 'M13 10V3L4 14h7v7l9-11h-7z'],
+      ['Garantía incluida', 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'],
+      ['Visita a domicilio', 'M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10'],
+    ].map(([txt, path]) => (
+      <span style="display:inline-flex;align-items:center;gap:8px;color:white;font-size:.875rem;font-weight:700;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d={path}/></svg>
+        {txt}
+      </span>
+    ))}
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section style="padding:96px 0;background:#f8fafc;" id="opiniones">
+  <div class="max-w-6xl mx-auto px-5">
+    <div style="text-align:center;margin-bottom:48px;">
+      <span style="color:#f97316;font-weight:700;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;">Opiniones verificadas de Google</span>
+      <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#0f172a;margin-top:12px;letter-spacing:-.02em;">Lo que dicen nuestros clientes</h2>
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px;">
+        <div style="display:flex;gap:3px;">
+          {[1,2,3,4,5].map(() => <svg width="22" height="22" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
         </div>
+        <span style="font-size:2rem;font-weight:900;color:#0f172a;">4.9</span>
+        <span style="color:#94a3b8;font-size:.875rem;">· 87 opiniones en Google</span>
       </div>
+    </div>
 
-      <!-- Bento grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
-        {REVIEWS.map((r, i) => (
-          <div class={`bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col gap-3 hover:shadow-md transition-shadow ${r.destacada ? 'md:row-span-1 ring-2 ring-orange-100' : ''}`}>
-            <div class="flex items-start justify-between gap-2">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                  {r.nombre.split(' ').map((n: string) => n[0]).join('').slice(0,2)}
-                </div>
-                <div>
-                  <p class="font-bold text-gray-900 text-sm leading-none">{r.nombre}</p>
-                  <p class="text-xs text-gray-400 mt-0.5">{r.barrio}</p>
-                </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;">
+      {REVIEWS.map(r => (
+        <article class="review-card" style={`background:white;border-radius:20px;padding:28px;border:1.5px solid ${r.destacada ? '#fed7aa' : '#f1f5f9'};`}>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1d4ed8,#3b82f6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:.875rem;flex-shrink:0;">
+                {r.nombre.split(' ').map((n: string) => n[0]).join('').slice(0,2)}
               </div>
-              <!-- Google G logo -->
-              <svg width="20" height="20" viewBox="0 0 24 24" class="flex-shrink-0 mt-1"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              <div>
+                <p style="font-weight:700;color:#0f172a;font-size:.9rem;">{r.nombre}</p>
+                <p style="color:#94a3b8;font-size:.75rem;">{r.barrio}</p>
+              </div>
             </div>
-            <div class="flex gap-0.5">
-              {[1,2,3,4,5].map((s) => (
-                <span class={`text-base ${s <= r.stars ? 'text-amber-400' : 'text-gray-200'}`}>★</span>
-              ))}
-              <span class="text-xs text-gray-400 ml-1 self-center">{r.fecha}</span>
-            </div>
-            <p class="text-gray-600 text-sm leading-relaxed flex-1">"{r.texto}"</p>
+            <!-- Google G -->
+            <svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
           </div>
-        ))}
-      </div>
-
-      <div class="text-center mt-8">
-        <a href="https://g.page/domestecnic/review" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-blue-700 font-semibold text-sm hover:underline">
-          Ver todas las opiniones en Google →
-        </a>
-      </div>
+          <div style="display:flex;gap:2px;margin-bottom:12px;">
+            {[1,2,3,4,5].map(s => <svg width="14" height="14" viewBox="0 0 24 24" fill={s<=r.stars?'#f59e0b':'#e2e8f0'} stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
+            <span style="color:#94a3b8;font-size:.7rem;margin-left:4px;align-self:center;">{r.fecha}</span>
+          </div>
+          <p style="color:#475569;font-size:.875rem;line-height:1.7;">"{r.texto}"</p>
+        </article>
+      ))}
     </div>
-  </section>
 
-  <!-- MARCAS -->
-  <section class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <p class="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-10">Especializados en las principales marcas</p>
-
-      <!-- Destacadas: SVG files -->
-      <div class="flex flex-wrap justify-center gap-6 mb-8">
-        {MARCAS_DEST.map(m => (
-          <div class="flex flex-col items-center gap-3 bg-blue-50 border-2 border-blue-200 rounded-2xl px-10 py-6 hover:shadow-md transition-all min-w-[160px]">
-            <img src={m.logo} alt={`Reparación ${m.nombre} Pamplona`} width="140" height="42" class="h-10 object-contain" loading="lazy" />
-          </div>
-        ))}
-      </div>
-
-      <!-- Resto: Google Favicons -->
-      <div class="flex flex-wrap justify-center gap-3">
-        {MARCAS_RESTO.map(m => (
-          <div class="flex items-center gap-2.5 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 hover:border-gray-300 transition-all">
-            <img
-              src={`https://www.google.com/s2/favicons?domain=${m.favicon}&sz=64`}
-              alt={m.nombre}
-              width="24" height="24"
-              class="rounded w-6 h-6 object-contain"
-              loading="lazy"
-            />
-            <span class="text-sm font-semibold text-gray-600">{m.nombre}</span>
-          </div>
-        ))}
-      </div>
-      <p class="text-center text-gray-400 text-xs mt-5">y muchas más marcas</p>
+    <div style="text-align:center;margin-top:32px;">
+      <a href="https://g.page/domestecnic" target="_blank" rel="noopener" style="color:#1d4ed8;font-weight:600;font-size:.875rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+        Ver todas las opiniones en Google
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SERVICIOS -->
-  <section class="py-20 bg-gray-50" id="servicios">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <span class="text-orange-500 font-bold text-sm uppercase tracking-widest">Nuestros servicios</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 mb-3">¿Qué se ha estropeado?</h2>
-        <p class="text-gray-500 max-w-xl mx-auto">Diagnóstico y reparación a domicilio en Pamplona y Navarra. El 90% de los casos se resuelven en la primera visita.</p>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {SERVICIOS.map(s => (
-          <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all">
-            <div class="text-3xl mb-3">{s.emoji}</div>
-            <h3 class="font-bold text-gray-900 mb-1">{s.nombre}</h3>
-            <p class="text-xs text-gray-400 leading-relaxed">{s.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+<!-- MARCAS -->
+<section style="padding:80px 0;background:white;">
+  <div class="max-w-6xl mx-auto px-5">
+    <p style="text-align:center;color:#94a3b8;font-weight:700;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:48px;">Especializados en las principales marcas</p>
 
-  <!-- CÓMO FUNCIONA -->
-  <section class="py-20 bg-slate-900 text-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <span class="text-orange-400 font-bold text-sm uppercase tracking-widest">Simple y sin sorpresas</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold mt-2">¿Cómo funciona?</h2>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        {[
-          { num: '01', titulo: 'Reserva tu visita', desc: 'Online o por teléfono. Elige día y franja horaria. El técnico llega puntual.', emoji: '📅' },
-          { num: '02', titulo: 'Diagnóstico gratuito', desc: 'Revisamos el aparato en tu domicilio y te damos presupuesto claro. Sin compromiso.', emoji: '🔍' },
-          { num: '03', titulo: 'Reparado y con garantía', desc: 'Reparamos en el momento siempre que sea posible. Garantía 3 meses incluida.', emoji: '✅' },
-        ].map(p => (
-          <div>
-            <div class="text-6xl font-black text-white/5 leading-none mb-4">{p.num}</div>
-            <div class="text-3xl mb-3">{p.emoji}</div>
-            <h3 class="font-bold text-xl mb-2">{p.titulo}</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">{p.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- RESERVA -->
-  <section class="py-20 bg-white" id="reserva">
-    <div class="max-w-5xl mx-auto px-4">
-      <div class="text-center mb-10">
-        <span class="text-orange-500 font-bold text-sm uppercase tracking-widest">Sin esperas</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 mb-3">Reserva tu visita hoy</h2>
-        <p class="text-gray-500 max-w-xl mx-auto">Elige día y hora directamente. Confirmación automática al instante.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8 items-start">
-        <!-- Info lateral -->
-        <div class="space-y-4">
-          {[
-            { emoji: '🕐', texto: 'Lunes a sábado, 8:00–20:00' },
-            { emoji: '📍', texto: 'Pamplona y toda Navarra' },
-            { emoji: '🛡️', texto: 'Garantía 3 meses en piezas' },
-            { emoji: '⚡', texto: '90% resueltos en primera visita' },
-          ].map(item => (
-            <div class="flex items-center gap-3 text-sm text-gray-600">
-              <div class="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 text-base">{item.emoji}</div>
-              {item.texto}
-            </div>
-          ))}
-          <div class="mt-6 p-5 bg-green-50 border border-green-200 rounded-2xl">
-            <p class="text-sm font-bold text-green-800 mb-1">¿Prefieres WhatsApp?</p>
-            <a href={WA_URL} target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-green-700 font-semibold text-sm hover:text-green-900 transition-colors">
-              💬 Escríbenos directamente →
-            </a>
-          </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-bottom:20px;">
+      {MARCAS_DEST.map(m => (
+        <div class="brand-card" style="display:flex;flex-direction:column;align-items:center;gap:12px;background:#eff6ff;border:2px solid #bfdbfe;border-radius:20px;padding:28px 40px;">
+          <img src={m.logo} alt={`Servicio técnico ${m.nombre} Pamplona`} width="140" height="44" style="height:44px;object-fit:contain;" loading="lazy" />
         </div>
+      ))}
+    </div>
 
-        <!-- Cal.com embed -->
-        <div class="md:col-span-2 rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-white">
-          <div id="cal-embed" style="min-height:600px; width:100%;"></div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
+      {MARCAS_RESTO.map(m => (
+        <div class="brand-card" style="display:flex;align-items:center;gap:10px;background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:14px;padding:10px 18px;">
+          <img src={`https://www.google.com/s2/favicons?domain=${m.favicon}&sz=64`} alt={m.nombre} width="22" height="22" style="width:22px;height:22px;border-radius:4px;object-fit:contain;" loading="lazy" />
+          <span style="font-weight:600;color:#475569;font-size:.875rem;">{m.nombre}</span>
         </div>
-      </div>
+      ))}
     </div>
-  </section>
+  </div>
+</section>
 
-  <script type="text/javascript">
-    (function (C, A, L) {
-      let p = function (a, ar) { a.q.push(ar); };
-      let d = C.document;
-      C.Cal = C.Cal || function () {
-        let cal = C.Cal; let ar = arguments;
-        if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
-        if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, [L, namespace, ar[2]]); } else p(cal, ar); return; }
-        p(cal, ar);
-      };
-    })(window, "https://cal.eu/embed/embed.js", "init");
+<!-- SERVICIOS -->
+<section style="padding:96px 0;background:#f8fafc;" id="servicios">
+  <div class="max-w-6xl mx-auto px-5">
+    <div style="text-align:center;margin-bottom:56px;">
+      <span style="color:#f97316;font-weight:700;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;">Servicios</span>
+      <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#0f172a;margin-top:12px;letter-spacing:-.02em;">¿Qué reparamos?</h2>
+      <p style="color:#64748b;margin-top:12px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7;">Diagnóstico y reparación a domicilio en Pamplona y Navarra. El 90% resuelto en la primera visita.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+      {SERVICIOS.map(s => (
+        <div class="service-card" style="background:white;border-radius:20px;padding:28px;border:1.5px solid #f1f5f9;">
+          <div class="service-icon" style="width:48px;height:48px;background:#eff6ff;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;transition:transform .2s;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d={s.icon}/>
+            </svg>
+          </div>
+          <h3 style="font-weight:700;color:#0f172a;font-size:1rem;margin-bottom:6px;">{s.nombre}</h3>
+          <p style="color:#94a3b8;font-size:.8rem;line-height:1.6;">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
-    Cal("init", { origin: "https://cal.eu" });
-    Cal("inline", {
-      elementOrSelector: "#cal-embed",
-      calLink: "justdoit/30min",
-      layout: "month_view",
-    });
-    Cal("ui", {
-      hideEventTypeDetails: false,
-      layout: "month_view",
-      theme: "light",
-    });
-  </script>
+<!-- CÓMO FUNCIONA -->
+<section style="padding:96px 0;background:#0f172a;color:white;">
+  <div class="max-w-6xl mx-auto px-5">
+    <div style="text-align:center;margin-bottom:64px;">
+      <span style="color:#f97316;font-weight:700;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;">Proceso</span>
+      <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;margin-top:12px;letter-spacing:-.02em;">Simple y sin sorpresas</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px;position:relative;">
+      {[
+        { num: '01', titulo: 'Reserva tu visita', desc: 'Online o por teléfono. Elige día y franja horaria. El técnico llega puntual en el tiempo acordado.', path: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2 M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z' },
+        { num: '02', titulo: 'Diagnóstico gratuito', desc: 'Revisamos el aparato en tu domicilio y te damos un presupuesto claro. Sin compromiso.', path: 'M9 11l3 3L22 4 M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11' },
+        { num: '03', titulo: 'Reparado y con garantía', desc: 'Reparamos en el momento siempre que sea posible. Garantía de 3 meses incluida.', path: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' },
+      ].map((p, i) => (
+        <div style="position:relative;">
+          <div style="font-size:5rem;font-weight:900;color:rgba(255,255,255,.04);line-height:1;margin-bottom:16px;">{p.num}</div>
+          <div style="width:52px;height:52px;background:#1e3a8a;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={p.path}/></svg>
+          </div>
+          <h3 style="font-weight:800;font-size:1.2rem;margin-bottom:12px;color:white;">{p.titulo}</h3>
+          <p style="color:#64748b;font-size:.9rem;line-height:1.7;">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
-  <!-- FAQ (SEO) -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-2xl font-extrabold text-gray-900 mb-8 text-center">Preguntas frecuentes</h2>
-      <div class="space-y-4">
+<!-- RESERVA -->
+<section style="padding:96px 0;background:white;" id="reserva">
+  <div class="max-w-5xl mx-auto px-5">
+    <div style="display:grid;grid-template-columns:1fr;gap:48px;" class="md:grid-cols-2-cols">
+      <div style="text-align:center;margin-bottom:8px;">
+        <span style="color:#f97316;font-weight:700;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;">Reserva online</span>
+        <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#0f172a;margin-top:12px;letter-spacing:-.02em;">Elige tu día y hora</h2>
+        <p style="color:#64748b;margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;">Confirmación automática al instante. Sin esperar llamadas.</p>
+      </div>
+
+      <div style="background:#f8fafc;border-radius:24px;border:1.5px solid #e2e8f0;overflow:hidden;">
+        <div id="cal-embed" style="min-height:600px;width:100%;"></div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:-16px;">
         {[
-          { q: '¿Cuánto cuesta reparar una lavadora en Pamplona?', a: 'Depende de la avería. El diagnóstico es gratuito y sin compromiso. La mayoría de reparaciones están entre 60€ y 180€ incluyendo mano de obra y piezas.' },
-          { q: '¿Reparáis electrodomésticos Siemens en Pamplona?', a: 'Sí, somos especialistas en Siemens, Bosch y Balay en Pamplona y toda Navarra. También reparamos Miele, AEG, Electrolux, Samsung, LG y más marcas.' },
-          { q: '¿Cuánto tarda la reparación?', a: 'El 90% de las reparaciones se resuelven en la primera visita a domicilio. Trabajamos con piezas originales y de recambio de calidad.' },
-          { q: '¿Dais garantía en las reparaciones?', a: 'Sí, todas nuestras reparaciones incluyen garantía de 3 meses en piezas y mano de obra.' },
-          { q: '¿A qué zonas de Navarra llegáis?', a: 'Cubrimos Pamplona y toda el área metropolitana: Barañáin, Burlada, Huarte, Villava, Ansoáin, Zizur Mayor, Berriozar, Cizur, Noáin, Sarriguren y más.' },
-        ].map(faq => (
-          <details class="bg-white rounded-xl border border-gray-200 px-6 py-4 group">
-            <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
-              {faq.q}
-              <span class="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
-            </summary>
-            <p class="text-gray-500 text-sm mt-3 leading-relaxed">{faq.a}</p>
-          </details>
+          ['Lun–Sáb, 8:00–20:00', 'M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm.5 5v6l4 2-.7 1.2L11 14V7h1.5z'],
+          ['Pamplona y Navarra', 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'],
+          ['Garantía 3 meses', 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'],
+          ['Primera visita: 90%', 'M13 10V3L4 14h7v7l9-11h-7z'],
+        ].map(([txt, path]) => (
+          <div style="display:flex;align-items:center;gap:8px;background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:12px;padding:10px 16px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d={path}/></svg>
+            <span style="color:#475569;font-size:.8rem;font-weight:600;">{txt}</span>
+          </div>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ZONAS -->
-  <section class="py-12 bg-white border-t border-gray-100">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <p class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Servicio técnico a domicilio en toda Navarra</p>
-      <div class="flex flex-wrap justify-center gap-2 text-sm">
-        {ZONAS.map(z => (
-          <span class="bg-gray-50 border border-gray-200 rounded-full px-3 py-1 text-gray-500 hover:bg-blue-50 hover:border-blue-200 transition-colors cursor-default">{z}</span>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section class="py-20 bg-gradient-to-r from-blue-900 to-blue-800 text-white text-center">
-    <div class="max-w-2xl mx-auto px-4">
-      <div class="text-5xl mb-6">🔧</div>
-      <h2 class="text-3xl md:text-4xl font-extrabold mb-3">¿Tu electrodoméstico no funciona?</h2>
-      <p class="text-blue-200 mb-8 text-lg">Llámanos ahora o reserva online. Cita disponible hoy.</p>
-      <div class="flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="#reserva" class="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all hover:scale-105 shadow-lg shadow-orange-500/30">
-          📅 Reservar visita
-        </a>
-        <a href={PHONE_HREF} class="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-8 py-4 rounded-xl transition-colors">
-          📞 {PHONE}
+        <a href={WA_URL} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:12px;padding:10px 16px;color:#16a34a;font-size:.8rem;font-weight:700;text-decoration:none;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Preferible WhatsApp →
         </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="bg-slate-950 text-gray-500 py-8">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
-      <div>
-        <span class="font-extrabold text-white">DOMES</span><span class="font-extrabold text-orange-400">TECNIC</span>
-        <span class="text-gray-500 ml-2">· Reparación de electrodomésticos · Pamplona, Navarra</span>
-      </div>
-      <div class="flex items-center gap-4">
-        <a href={PHONE_HREF} class="hover:text-white transition-colors">📞 {PHONE}</a>
-        <a href={WA_URL} target="_blank" rel="noopener" class="hover:text-green-400 transition-colors">💬 WhatsApp</a>
-      </div>
+<!-- FAQ -->
+<section style="padding:80px 0;background:#f8fafc;">
+  <div class="max-w-3xl mx-auto px-5">
+    <h2 style="font-size:1.75rem;font-weight:900;color:#0f172a;margin-bottom:32px;text-align:center;letter-spacing:-.01em;">Preguntas frecuentes</h2>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      {[
+        { q: '¿Cuánto cuesta reparar una lavadora en Pamplona?', a: 'El diagnóstico es gratuito. La mayoría de reparaciones están entre 60€ y 180€ incluyendo mano de obra y piezas.' },
+        { q: '¿Reparáis electrodomésticos Siemens en Pamplona?', a: 'Sí, somos especialistas en Siemens, Bosch y Balay en Pamplona y toda Navarra. También Miele, AEG, Electrolux, Samsung, LG y más.' },
+        { q: '¿Cuánto tarda la reparación?', a: 'El 90% de los casos se resuelven en la primera visita a domicilio.' },
+        { q: '¿Dais garantía en las reparaciones?', a: 'Sí, garantía de 3 meses en piezas y mano de obra en todas las reparaciones.' },
+        { q: '¿A qué zonas de Navarra llegáis?', a: 'Pamplona y área metropolitana: Barañáin, Burlada, Huarte, Villava, Ansoáin, Zizur Mayor, Berriozar, Cizur, Noáin, Sarriguren y más.' },
+      ].map(faq => (
+        <details style="background:white;border-radius:16px;border:1.5px solid #e2e8f0;overflow:hidden;" class="group">
+          <summary style="padding:20px 24px;font-weight:700;color:#0f172a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.95rem;list-style:none;">
+            {faq.q}
+            <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;margin-left:12px;transition:transform .2s;"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div style="padding:0 24px 20px;color:#64748b;font-size:.9rem;line-height:1.7;border-top:1.5px solid #f1f5f9;">{faq.a}</div>
+        </details>
+      ))}
     </div>
-    <div class="text-center text-xs text-gray-700 mt-4">© {new Date().getFullYear()} Domestecnic · Pamplona, Navarra · Todos los derechos reservados</div>
-  </footer>
+  </div>
+</section>
 
-  <!-- WhatsApp FAB -->
-  <a href={WA_URL} target="_blank" rel="noopener"
-    class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-xl flex items-center justify-center transition-all hover:scale-110"
-    aria-label="Contactar por WhatsApp">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-  </a>
+<!-- ZONAS -->
+<section style="padding:60px 0;background:white;border-top:1px solid #f1f5f9;">
+  <div class="max-w-6xl mx-auto px-5" style="text-align:center;">
+    <p style="color:#94a3b8;font-weight:700;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px;">Servicio técnico a domicilio en toda Navarra</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;">
+      {ZONAS.map(z => (
+        <span style="background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:100px;padding:6px 16px;color:#64748b;font-size:.8rem;font-weight:500;">{z}</span>
+      ))}
+    </div>
+  </div>
+</section>
 
-  <style>
-    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.5; } }
-    details summary::-webkit-details-marker { display: none; }
-  </style>
+<!-- CTA FINAL -->
+<section style="padding:96px 0;background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 60%,#1d4ed8 100%);text-align:center;color:white;">
+  <div class="max-w-2xl mx-auto px-5">
+    <div style="width:72px;height:72px;background:rgba(249,115,22,.15);border-radius:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 32px;">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+    </div>
+    <h2 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;letter-spacing:-.02em;margin-bottom:16px;">¿Tu electrodoméstico no funciona?</h2>
+    <p style="color:#64748b;margin-bottom:40px;font-size:1.1rem;">Cita disponible hoy. Llámanos o reserva online.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+      <a href="#reserva" style="display:inline-flex;align-items:center;gap:10px;background:#f97316;color:white;font-weight:700;padding:18px 32px;border-radius:14px;font-size:1rem;text-decoration:none;box-shadow:0 8px 32px rgba(249,115,22,.4);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Reservar visita
+      </a>
+      <a href={PHONE_HREF} style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);color:white;font-weight:600;padding:18px 32px;border-radius:14px;font-size:1rem;text-decoration:none;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.66 18l.26-1.08z"/></svg>
+        {PHONE}
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#020617;padding:32px 20px;">
+  <div class="max-w-6xl mx-auto" style="display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;">
+    <div>
+      <span style="font-weight:900;color:white;font-size:1.1rem;letter-spacing:-.01em;">DOMES</span><span style="font-weight:900;color:#f97316;font-size:1.1rem;letter-spacing:-.01em;">TECNIC</span>
+      <span style="color:#334155;margin-left:10px;font-size:.875rem;">· Reparación de electrodomésticos · Pamplona, Navarra</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <a href={PHONE_HREF} style="color:#64748b;font-size:.875rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#64748b'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.66 18l.26-1.08z"/></svg>
+        {PHONE}
+      </a>
+      <a href={WA_URL} target="_blank" rel="noopener" style="color:#64748b;font-size:.875rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='#64748b'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <p style="color:#1e293b;font-size:.75rem;">© {new Date().getFullYear()} Domestecnic · Pamplona, Navarra</p>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href={WA_URL} target="_blank" rel="noopener" aria-label="WhatsApp"
+  style="position:fixed;bottom:24px;right:24px;z-index:50;width:56px;height:56px;background:#22c55e;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(34,197,94,.4);transition:all .2s;"
+  onmouseover="this.style.transform='scale(1.1)';this.style.background='#16a34a'"
+  onmouseout="this.style.transform='scale(1)';this.style.background='#22c55e'">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+</a>
+
+<!-- Cal.com embed -->
+<script type="text/javascript">
+  (function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,[L,namespace,ar[2]])}else p(cal,ar);return}p(cal,ar)};})(window,"https://cal.eu/embed/embed.js","init");
+  Cal("init",{origin:"https://cal.eu"});
+  Cal("inline",{elementOrSelector:"#cal-embed",calLink:"justdoit/30min",layout:"month_view"});
+  Cal("ui",{hideEventTypeDetails:false,layout:"month_view",theme:"light"});
+</script>
 </Layout>
