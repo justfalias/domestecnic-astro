@@ -41,7 +41,7 @@ const MARCAS = [
 ---
 
 <Layout>
-<style>
+<style is:global>
   * { box-sizing: border-box; }
   :root { --orange: #f97316; --blue: #1d4ed8; --dark: #0a0f1e; --mid: #111827; }
 
@@ -652,7 +652,7 @@ if (track && dots.length) {
 </script>
 
 <!-- MOBILE RESPONSIVE OVERRIDES -->
-<style>
+<style is:global>
 @media (max-width: 768px) {
   /* Stats 2x2 */
   .stats-grid { grid-template-columns: 1fr 1fr !important; }
