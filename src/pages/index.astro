@@ -188,10 +188,9 @@ const MARCAS = [
 </header>
 
 <!-- HERO -->
-<section style="background:var(--dark);min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;">
-  <!-- bg texture -->
-  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.025) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;"></div>
-  <div style="position:absolute;top:0;right:0;width:60%;height:100%;background:linear-gradient(135deg,transparent 0%,rgba(29,78,216,.12) 100%);pointer-events:none;"></div>
+<section style="background:#0a0f1e;min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;">
+  <!-- bg texture uniforme -->
+  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.02) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;"></div>
 
   <div style="max-width:1200px;margin:0 auto;padding:80px 24px;width:100%;">
     <div class="hero-grid" style="display:grid;grid-template-columns:1fr 480px;gap:64px;align-items:center;">
@@ -206,7 +205,7 @@ const MARCAS = [
           <span style="color:#93c5fd;font-size:.8rem;font-weight:600;">4,7 · 207 opiniones en Google</span>
         </div>
 
-        <h1 class="fade-up-2" style="font-size:clamp(2rem,5.5vw,4.5rem);font-weight:900;color:white;line-height:1.1;letter-spacing:-.03em;margin-bottom:24px;">
+        <h1 class="fade-up-2 hero-h1" style="font-size:clamp(2rem,5.5vw,4.5rem);font-weight:900;color:white;line-height:1.1;letter-spacing:-.03em;margin-bottom:24px;text-wrap:balance;word-break:keep-all;overflow-wrap:break-word;">
           ¿Electrodoméstico<br/>roto? <span style="color:var(--orange);">Lo arreglamos<br/>hoy.</span>
         </h1>
 
@@ -244,34 +243,52 @@ const MARCAS = [
 
       <!-- Right — hero image -->
       <div class="hero-img-block" style="position:relative;">
-        <div style="border-radius:28px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 32px 80px rgba(0,0,0,.5);">
+        <div style="border-radius:28px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 40px 80px rgba(0,0,0,.7);">
           <img
             src="/tecnico-hero.webp"
             alt="Técnico reparando lavadora Bosch en domicilio en Pamplona"
             style="width:100%;height:100%;object-fit:cover;object-position:center top;"
             loading="eager"
           />
-          <!-- Overlay gradient at bottom -->
-          <div style="position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top,rgba(10,15,30,.9),transparent);"></div>
+          <!-- Vignette completo -->
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(10,15,30,.6) 100%);pointer-events:none;"></div>
+          <!-- Overlay degradé bottom -->
+          <div style="position:absolute;bottom:0;left:0;right:0;height:55%;background:linear-gradient(to top,rgba(10,15,30,.95) 0%,transparent 100%);pointer-events:none;"></div>
         </div>
-        <!-- Floating badge -->
-        <div style="position:absolute;bottom:24px;left:24px;right:24px;background:rgba(255,255,255,.06);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:16px 20px;display:flex;align-items:center;gap:14px;">
-          <div style="width:44px;height:44px;background:var(--orange);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div>
-            <p style="color:white;font-weight:700;font-size:.9rem;line-height:1.3;">+1.200 electrodomésticos</p>
-            <p style="color:#64748b;font-size:.75rem;margin-top:2px;">reparados en Navarra</p>
-          </div>
-        </div>
-        <!-- Stars badge top-right -->
-        <div style="position:absolute;top:24px;right:24px;background:rgba(255,255,255,.08);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:10px 16px;display:flex;align-items:center;gap:8px;">
+
+        <!-- Badge: rating Google — top left -->
+        <div style="position:absolute;top:20px;left:20px;background:rgba(10,15,30,.7);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:10px 14px;display:flex;align-items:center;gap:8px;">
           <div style="display:flex;gap:1px;">
-            {[1,2,3,4,5].map(() => <svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
+            {[1,2,3,4,5].map(() => <svg width="13" height="13" viewBox="0 0 24 24" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
           </div>
-          <span style="color:white;font-weight:700;font-size:.875rem;">4,7</span>
-          <div style="width:1px;height:14px;background:rgba(255,255,255,.2);"></div>
-          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <span style="color:white;font-weight:700;font-size:.85rem;">4,7</span>
+          <div style="width:1px;height:13px;background:rgba(255,255,255,.2);"></div>
+          <svg width="17" height="17" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <span style="color:#94a3b8;font-size:.7rem;">207 opiniones</span>
+        </div>
+
+        <!-- Badge: disponible hoy — top right -->
+        <div style="position:absolute;top:20px;right:20px;background:rgba(34,197,94,.15);backdrop-filter:blur(12px);border:1px solid rgba(34,197,94,.3);border-radius:14px;padding:10px 14px;display:flex;align-items:center;gap:7px;">
+          <span style="width:8px;height:8px;background:#22c55e;border-radius:50%;box-shadow:0 0 8px #22c55e;flex-shrink:0;"></span>
+          <span style="color:#4ade80;font-size:.8rem;font-weight:700;">Disponible hoy</span>
+        </div>
+
+        <!-- Badge: tiempo respuesta — mid right -->
+        <div style="position:absolute;top:50%;right:-16px;transform:translateY(-50%);background:white;border-radius:16px;padding:14px 16px;box-shadow:0 8px 32px rgba(0,0,0,.2);text-align:center;min-width:100px;">
+          <div style="font-size:1.4rem;font-weight:900;color:#0f172a;line-height:1;">2h</div>
+          <div style="font-size:.65rem;color:#64748b;font-weight:600;margin-top:3px;line-height:1.3;">tiempo medio<br/>de respuesta</div>
+        </div>
+
+        <!-- Badge: reparaciones + garantía — bottom -->
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;display:flex;gap:10px;">
+          <div style="flex:1;background:rgba(10,15,30,.75);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px 16px;">
+            <div style="color:white;font-weight:800;font-size:1.1rem;line-height:1;">+1.200</div>
+            <div style="color:#64748b;font-size:.7rem;margin-top:4px;">reparaciones en Navarra</div>
+          </div>
+          <div style="flex:1;background:rgba(249,115,22,.15);backdrop-filter:blur(12px);border:1px solid rgba(249,115,22,.25);border-radius:16px;padding:14px 16px;">
+            <div style="color:#fb923c;font-weight:800;font-size:1.1rem;line-height:1;">3 meses</div>
+            <div style="color:#64748b;font-size:.7rem;margin-top:4px;">garantía incluida</div>
+          </div>
         </div>
       </div>
     </div>
