@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://domestecnic.com/sitemap.xml
+Sitemap: https://www.servitecnafarroa.com/sitemap.xml
