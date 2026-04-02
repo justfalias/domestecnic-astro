@@ -188,6 +188,22 @@ const jsonLd = {
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPRN8F5V"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MCM5M49Z9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5MCM5M49Z9');
+      document.addEventListener('click', function(e) {
+        var el = e.target.closest('[data-cta]');
+        if (!el) return;
+        gtag('event', 'cta_click', {
+          cta_type: el.dataset.cta,
+          cta_location: el.dataset.location
+        });
+      });
+    </script>
     <slot />
   </body>
 </html>
