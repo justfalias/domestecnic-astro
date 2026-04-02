@@ -8,40 +8,45 @@ interface Props {
 }
 
 const {
-  title = 'Reparación de Electrodomésticos en Pamplona | Servitec Nafarroa',
-  description = 'Servicio técnico especializado en reparación de electrodomésticos en Pamplona y Navarra. Siemens, Bosch, Balay y más marcas. Visita a domicilio. Presupuesto gratuito. Reserva online.',
-  canonical = 'https://servitecnafarroa.com',
+  title = 'Reparación de Electrodomésticos Pamplona | Servitec Nafarroa — +18 años, 365 días',
+  description = 'Técnicos multimarca con +18 años de experiencia en Pamplona y toda Navarra. Reparamos Siemens, Bosch, Balay, Miele, AEG y más. Servicio a domicilio 365 días, festivos incluidos. Llámanos: 634 006 304.',
+  canonical = 'https://www.servitecnafarroa.com/',
 } = Astro.props
 
-const ogImage = 'https://servitecnafarroa.com/og-image.png'
+const ogImage = 'https://www.servitecnafarroa.com/og-image.png'
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "LocalBusiness",
-      "@id": "https://servitecnafarroa.com/#business",
+      "@id": "https://www.servitecnafarroa.com/#business",
       "name": "Servitec Nafarroa",
-      "alternateName": "Servitec Nafarroa Servicio Técnico Pamplona",
-      "description": "Servicio técnico especializado en reparación de electrodomésticos en Pamplona y Navarra. Especialistas en Siemens, Bosch y Balay.",
-      "url": "https://servitecnafarroa.com",
+      "alternateName": ["Servitec Nafarroa SAT", "Servicio Técnico Electrodomésticos Pamplona"],
+      "description": "Servicio técnico independiente multimarca especializado en reparación de electrodomésticos en Pamplona y toda Navarra. +18 años de experiencia. Disponible 365 días.",
+      "url": "https://www.servitecnafarroa.com",
       "telephone": "+34634006304",
       "priceRange": "€€",
       "image": ogImage,
       "logo": ogImage,
       "areaServed": [
-        { "@type": "City", "name": "Pamplona", "sameAs": "https://www.wikidata.org/wiki/Q10282" },
+        { "@type": "City", "name": "Pamplona" },
         { "@type": "City", "name": "Barañáin" },
         { "@type": "City", "name": "Burlada" },
         { "@type": "City", "name": "Huarte" },
         { "@type": "City", "name": "Villava" },
-        { "@type": "AdministrativeArea", "name": "Navarra", "sameAs": "https://www.wikidata.org/wiki/Q10282" }
+        { "@type": "City", "name": "Ansoáin" },
+        { "@type": "City", "name": "Zizur Mayor" },
+        { "@type": "City", "name": "Berriozar" },
+        { "@type": "City", "name": "Noáin" },
+        { "@type": "City", "name": "Sarriguren" },
+        { "@type": "AdministrativeArea", "name": "Navarra" }
       ],
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Pamplona",
         "addressRegion": "Navarra",
-        "postalCode": "31001",
+        "postalCode": "31011",
         "addressCountry": "ES"
       },
       "geo": {
@@ -49,23 +54,19 @@ const jsonLd = {
         "latitude": "42.8169",
         "longitude": "-1.6432"
       },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-          "opens": "08:00",
-          "closes": "20:00"
-        }
-      ],
-      "sameAs": [
-        "https://www.servitecnafarroa.com"
-      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      "sameAs": ["https://www.servitecnafarroa.com"],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Reparación de electrodomésticos en Pamplona",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de lavadoras en Pamplona", "description": "Reparamos lavadoras de todas las marcas en Pamplona y Navarra a domicilio." }},
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de frigoríficos en Pamplona", "description": "Servicio técnico de frigoríficos y congeladores en Pamplona." }},
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de lavadoras en Pamplona" }},
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de frigoríficos en Pamplona" }},
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de lavavajillas en Pamplona" }},
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de hornos en Pamplona" }},
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de secadoras en Pamplona" }},
@@ -78,23 +79,8 @@ const jsonLd = {
         "@type": "AggregateRating",
         "ratingValue": "4.7",
         "reviewCount": "207",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "author": { "@type": "Person", "name": "Juan Pablo Carretero" },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-          "reviewBody": "Llamé un domingo a primera hora porque la lavadora dejó de funcionar, y a las dos horas lo tenía aquí. Denis súper majo y atento siempre. Muy profesional."
-        },
-        {
-          "@type": "Review",
-          "author": { "@type": "Person", "name": "Silvia Perete" },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-          "reviewBody": "Un domingo se me estropeó la lavadora, llamé y en media hora estaba el técnico en mi casa. Persona encantadora y amable, precio muy bueno para ser domingo."
-        }
-      ]
+        "bestRating": "5"
+      }
     },
     {
       "@type": "FAQPage",
@@ -102,47 +88,31 @@ const jsonLd = {
         {
           "@type": "Question",
           "name": "¿Cuánto cuesta reparar una lavadora en Pamplona?",
-          "acceptedAnswer": { "@type": "Answer", "text": "El diagnóstico es gratuito y sin compromiso. La mayoría de reparaciones de lavadora en Pamplona están entre 60€ y 180€ incluyendo mano de obra y piezas." }
+          "acceptedAnswer": { "@type": "Answer", "text": "La intervención mínima (desplazamiento + diagnóstico + presupuesto) tiene un coste de 40€ + IVA. La mano de obra de reparación son 20€ + IVA más el coste del repuesto según fabricante. La mayoría de reparaciones están entre 60€ y 180€." }
         },
         {
           "@type": "Question",
-          "name": "¿Reparáis electrodomésticos Siemens en Pamplona?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí, somos especialistas en la reparación de electrodomésticos Siemens, Bosch y Balay en Pamplona y toda Navarra. También reparamos Miele, AEG, Electrolux, Samsung, LG y más marcas." }
+          "name": "¿Reparáis electrodomésticos Siemens, Bosch y Balay en Pamplona?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, somos especialistas en Siemens, Bosch y Balay. También reparamos Miele, AEG, Electrolux, Samsung, LG, Fagor, Beko, Zanussi, Teka, Edesa, Cata y más marcas en Pamplona y toda Navarra." }
         },
         {
           "@type": "Question",
-          "name": "¿Cuánto tarda la reparación?",
-          "acceptedAnswer": { "@type": "Answer", "text": "El 90% de las reparaciones se resuelven en la primera visita a domicilio. Trabajamos con piezas originales y de calidad." }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Dais garantía en las reparaciones?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí, todas nuestras reparaciones incluyen garantía de 3 meses en piezas y mano de obra." }
+          "name": "¿Trabajáis festivos y fines de semana?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Disponibles los 365 días del año, incluyendo festivos y fines de semana. Un electrodoméstico averiado no entiende de calendarios." }
         },
         {
           "@type": "Question",
           "name": "¿A qué zonas de Navarra llegáis?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Cubrimos Pamplona y toda el área metropolitana: Barañáin, Burlada, Huarte, Villava, Ansoáin, Zizur Mayor, Berriozar, Cizur, Noáin, Sarriguren, Beriáin y más municipios de Navarra." }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Se puede reservar visita online?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí, puedes reservar tu visita técnica directamente online eligiendo día y hora. También puedes contactar por WhatsApp o teléfono." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Cubrimos Pamplona y toda Navarra: Barañáin, Burlada, Huarte, Villava, Ansoáin, Zizur Mayor, Berriozar, Cizur, Noáin, Sarriguren, Beriáin y más municipios." }
         }
       ]
     },
     {
       "@type": "WebSite",
-      "@id": "https://servitecnafarroa.com/#website",
-      "url": "https://servitecnafarroa.com",
+      "@id": "https://www.servitecnafarroa.com/#website",
+      "url": "https://www.servitecnafarroa.com",
       "name": "Servitec Nafarroa",
-      "description": "Servicio técnico de electrodomésticos en Pamplona y Navarra",
-      "inLanguage": "es-ES",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://servitecnafarroa.com/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "inLanguage": "es-ES"
     }
   ]
 }
@@ -161,31 +131,25 @@ const jsonLd = {
     <meta name="geo.placename" content="Pamplona, Navarra" />
     <meta name="geo.position" content="42.8169;-1.6432" />
     <meta name="ICBM" content="42.8169, -1.6432" />
-
-    <!-- Keywords -->
-    <meta name="keywords" content="reparación electrodomésticos Pamplona, servicio técnico Siemens Pamplona, reparar lavadora Pamplona, técnico electrodomésticos Navarra, reparación Bosch Pamplona, reparación Balay Pamplona, servicio técnico electrodomésticos Navarra, reparación frigorífico Pamplona, reparación lavavajillas Pamplona, reparación horno Pamplona" />
+    <meta name="keywords" content="reparación electrodomésticos Pamplona, servicio técnico Siemens Pamplona, reparar lavadora Pamplona, técnico electrodomésticos Navarra, reparación Bosch Pamplona, reparación Balay Pamplona, servicio técnico electrodomésticos festivos Navarra, reparación frigorífico Pamplona, técnico Pamplona 365 días" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content="Reparación de Electrodomésticos en Pamplona — Servitec Nafarroa" />
+    <meta property="og:description" content="Técnicos multimarca con +18 años de experiencia. Servicio a domicilio en toda Navarra, 365 días al año, festivos incluidos. 4,7★ · 207 opiniones Google." />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Servitec Nafarroa - Reparación de electrodomésticos en Pamplona" />
+    <meta property="og:image:alt" content="Servitec Nafarroa — Reparación de electrodomésticos en Pamplona, 365 días" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Servitec Nafarroa" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content="Reparación de Electrodomésticos en Pamplona — Servitec Nafarroa" />
+    <meta name="twitter:description" content="Técnicos multimarca con +18 años de experiencia en Navarra. Disponibles 365 días, festivos incluidos." />
     <meta name="twitter:image" content={ogImage} />
-    <meta name="twitter:image:alt" content="Servitec Nafarroa - Reparación de electrodomésticos en Pamplona" />
-
-    <!-- WhatsApp / Telegram preview -->
-    <meta property="og:image:type" content="image/png" />
 
     <!-- JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
@@ -197,7 +161,6 @@ const jsonLd = {
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://www.google.com" />
   </head>
   <body>
     <slot />

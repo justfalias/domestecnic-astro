@@ -226,7 +226,7 @@ const MARCAS = [
         </h1>
 
         <p class="fade-up-3" style="font-size:1.1rem;color:#64748b;line-height:1.8;margin-bottom:40px;max-width:480px;">
-          Técnicos especializados en <strong style="color:#94a3b8;">Siemens, Bosch y Balay</strong>. Reparación a domicilio el mismo día en Pamplona y Navarra.
+          Técnicos independientes multimarca con <strong style="color:#94a3b8;">+18 años de experiencia</strong>. Servicio a domicilio en toda Navarra, incluso festivos.
         </p>
 
         <div class="fade-up-3" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:48px;">
@@ -243,9 +243,9 @@ const MARCAS = [
         <!-- Trust badges -->
         <div style="display:flex;flex-wrap:wrap;gap:16px;">
           {[
-            ['Garantía 3 meses', 'M9 11l3 3L22 4'],
-            ['Garantía 3 meses', 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'],
-            ['Disponible sábados', 'M8 2v4 M16 2v4 M3 10h18 M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z'],
+            ['+18 años de experiencia', 'M9 11l3 3L22 4'],
+            ['Disponible 365 días — festivos incluidos', 'M8 2v4 M16 2v4 M3 10h18 M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z'],
+            ['Toda Navarra, mismo día', 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'],
           ].map(([txt, path]) => (
             <div style="display:flex;align-items:center;gap:8px;">
               <div style="width:24px;height:24px;border-radius:8px;background:rgba(249,115,22,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -302,8 +302,8 @@ const MARCAS = [
             <div style="color:#64748b;font-size:.7rem;margin-top:4px;">reparaciones en Navarra</div>
           </div>
           <div style="flex:1;background:rgba(249,115,22,.15);backdrop-filter:blur(12px);border:1px solid rgba(249,115,22,.25);border-radius:16px;padding:14px 16px;">
-            <div style="color:#fb923c;font-weight:800;font-size:1.1rem;line-height:1;">3 meses</div>
-            <div style="color:#64748b;font-size:.7rem;margin-top:4px;">garantía incluida</div>
+            <div style="color:#fb923c;font-weight:800;font-size:1.1rem;line-height:1;">365 días</div>
+            <div style="color:#64748b;font-size:.7rem;margin-top:4px;">festivos incluidos</div>
           </div>
         </div>
       </div>
@@ -319,7 +319,7 @@ const MARCAS = [
         { num: '+1.200', label: 'Electrodomésticos reparados', sub: 'en Pamplona y Navarra', icon: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z' },
         { num: '4,7★', label: 'Valoración media Google', sub: '207 opiniones verificadas', icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z' },
         { num: '90%', label: 'Resuelto en primera visita', sub: 'sin segunda llamada', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
-        { num: 'Sáb', label: 'Disponible los sábados', sub: 'Lun–Sáb · 8:00–20:00', icon: 'M8 2v4 M16 2v4 M3 10h18 M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z' },
+        { num: '365', label: 'Días al año disponibles', sub: 'Incluso festivos y fines de semana', icon: 'M8 2v4 M16 2v4 M3 10h18 M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z' },
       ].map(s => (
         <div class="stat-card">
           <div style="width:40px;height:40px;background:rgba(249,115,22,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
@@ -334,8 +334,41 @@ const MARCAS = [
   </div>
 </section>
 
+<!-- TARIFAS -->
+<section style="padding:64px 0;background:white;" id="tarifas">
+  <div style="max-width:800px;margin:0 auto;padding:0 24px;">
+    <span class="section-label" style="display:block;text-align:center;margin-bottom:12px;">Precios</span>
+    <h2 class="section-title" style="text-align:center;margin-bottom:8px;">Tarifas</h2>
+    <p style="text-align:center;color:#64748b;font-size:.95rem;margin-bottom:40px;">Transparencia total. Sin sorpresas al final.</p>
+    <div style="display:flex;flex-direction:column;gap:0;border:1.5px solid #e2e8f0;border-radius:24px;overflow:hidden;background:white;box-shadow:0 4px 24px rgba(0,0,0,.05);">
+      <div style="padding:28px 36px;border-bottom:1.5px solid #f1f5f9;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:1.05rem;font-weight:800;color:#0f172a;letter-spacing:-.01em;margin-bottom:4px;">Intervención mínima</div>
+          <div style="color:#64748b;font-size:.85rem;line-height:1.5;">Desplazamiento · Diagnóstico · Presupuesto</div>
+        </div>
+        <div style="font-size:1.75rem;font-weight:900;color:#1d4ed8;white-space:nowrap;">40,00 €<span style="font-size:.75rem;font-weight:500;color:#94a3b8;">*</span></div>
+      </div>
+      <div style="padding:28px 36px;border-bottom:1.5px solid #f1f5f9;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:1.05rem;font-weight:800;color:#0f172a;letter-spacing:-.01em;margin-bottom:4px;">Mano de obra</div>
+          <div style="color:#64748b;font-size:.85rem;line-height:1.5;">Desmontar y montar la pieza</div>
+        </div>
+        <div style="font-size:1.75rem;font-weight:900;color:#1d4ed8;white-space:nowrap;">20,00 €<span style="font-size:.75rem;font-weight:500;color:#94a3b8;">*</span></div>
+      </div>
+      <div style="padding:28px 36px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:1.05rem;font-weight:800;color:#0f172a;letter-spacing:-.01em;margin-bottom:4px;">Repuestos</div>
+          <div style="color:#64748b;font-size:.85rem;line-height:1.5;">Según tarifa vigente del fabricante</div>
+        </div>
+        <div style="font-size:1rem;font-weight:700;color:#f97316;white-space:nowrap;">A consultar</div>
+      </div>
+    </div>
+    <p style="text-align:center;color:#94a3b8;font-size:.75rem;margin-top:14px;">* IVA no incluido. Presupuesto definitivo tras diagnóstico in situ.</p>
+  </div>
+</section>
+
 <!-- ABOUT -->
-<section class="about-section" style="padding:96px 0;background:white;" id="nosotros">
+<section class="about-section" style="padding:96px 0;background:#f8fafc;" id="nosotros">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
     <div class="about-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
       <div style="position:relative;">
@@ -349,15 +382,15 @@ const MARCAS = [
         </div>
         <!-- Floating card -->
         <div style="position:absolute;bottom:-24px;right:-24px;background:var(--orange);border-radius:20px;padding:24px 28px;box-shadow:0 16px 40px rgba(249,115,22,.4);">
-          <div style="color:white;font-size:2.5rem;font-weight:900;line-height:1;">3 meses</div>
-          <div style="color:rgba(255,255,255,.8);font-size:.8rem;margin-top:4px;font-weight:600;">de garantía incluida</div>
+          <div style="color:white;font-size:2.5rem;font-weight:900;line-height:1;">+18</div>
+          <div style="color:rgba(255,255,255,.8);font-size:.8rem;margin-top:4px;font-weight:600;">años de experiencia</div>
         </div>
       </div>
       <div>
         <span class="section-label">Quiénes somos</span>
         <h2 class="section-title" style="margin-bottom:24px;">Pasión, dedicación<br/>y experiencia real.</h2>
         <p style="color:#475569;line-height:1.9;margin-bottom:20px;font-size:1rem;">
-          En Servitec Nafarroa somos técnicos especializados en reparación de electrodomésticos con años de experiencia atendiendo hogares en Pamplona y toda Navarra. Conocemos cada modelo, cada avería, cada solución.
+          Con más de 18 años reparando electrodomésticos en Navarra, conocemos cada modelo, cada avería, cada solución. Servicio a domicilio en todo el territorio foral — sin excepción.
         </p>
         <p style="color:#475569;line-height:1.9;margin-bottom:36px;font-size:1rem;">
           No somos un servicio oficial de ninguna marca — somos <strong style="color:#0f172a;">técnicos independientes multimarca</strong> que priorizamos la honestidad: si no merece la pena reparar, te lo decimos.
@@ -365,9 +398,9 @@ const MARCAS = [
         <div style="display:flex;flex-direction:column;gap:16px;">
           {[
             ['Diagnóstico en domicilio, sin coste', 'M9 11l3 3L22 4'],
-            ['Piezas de repuesto de calidad garantizada', 'M9 11l3 3L22 4'],
+            ['Piezas de repuesto de calidad contrastada', 'M9 11l3 3L22 4'],
             ['Presupuesto cerrado antes de empezar', 'M9 11l3 3L22 4'],
-            ['Garantía 3 meses en piezas y mano de obra', 'M9 11l3 3L22 4'],
+            ['Disponibles 365 días — festivos incluidos', 'M9 11l3 3L22 4'],
           ].map(([txt]) => (
             <div style="display:flex;align-items:center;gap:12px;">
               <div style="width:22px;height:22px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -592,7 +625,7 @@ if (track && dots.length) {
       {[
         ['Lun – Sáb · 8:00 a 20:00', 'M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm.5 5v6l4 2-.7 1.2L11 14V7h1.5z'],
         ['Pamplona y toda Navarra', 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'],
-        ['Garantía 3 meses', 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'],
+        ['Disponible festivos y fines de semana', 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'],
       ].map(([txt, path]) => (
         <div style="display:flex;align-items:center;gap:8px;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d={path}/></svg>
@@ -615,47 +648,6 @@ if (track && dots.length) {
   </div>
 </section>
 
-<!-- TARIFAS -->
-<section style="padding:80px 0;background:#f8fafc;" id="tarifas">
-  <div style="max-width:800px;margin:0 auto;padding:0 24px;">
-    <span class="section-label" style="display:block;text-align:center;margin-bottom:12px;">Precios</span>
-    <h2 class="section-title" style="text-align:center;margin-bottom:8px;">Tarifas</h2>
-    <p style="text-align:center;color:#64748b;font-size:.95rem;margin-bottom:48px;">Transparencia total. Sin sorpresas al final.</p>
-
-    <div style="display:flex;flex-direction:column;gap:0;border:1.5px solid #e2e8f0;border-radius:24px;overflow:hidden;background:white;box-shadow:0 4px 24px rgba(0,0,0,.05);">
-
-      <!-- Intervención mínima -->
-      <div style="padding:32px 40px;border-bottom:1.5px solid #f1f5f9;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-        <div>
-          <div style="font-size:1.05rem;font-weight:800;color:#0f172a;letter-spacing:-.01em;margin-bottom:4px;">Intervención mínima</div>
-          <div style="color:#64748b;font-size:.85rem;line-height:1.5;">Desplazamiento · Diagnóstico de avería · Elaboración del presupuesto</div>
-        </div>
-        <div style="font-size:1.75rem;font-weight:900;color:#1d4ed8;white-space:nowrap;">40,00 €<span style="font-size:.75rem;font-weight:500;color:#94a3b8;">*</span></div>
-      </div>
-
-      <!-- Mano de obra -->
-      <div style="padding:32px 40px;border-bottom:1.5px solid #f1f5f9;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-        <div>
-          <div style="font-size:1.05rem;font-weight:800;color:#0f172a;letter-spacing:-.01em;margin-bottom:4px;">Mano de obra</div>
-          <div style="color:#64748b;font-size:.85rem;line-height:1.5;">Desmontar y montar la pieza</div>
-        </div>
-        <div style="font-size:1.75rem;font-weight:900;color:#1d4ed8;white-space:nowrap;">20,00 €<span style="font-size:.75rem;font-weight:500;color:#94a3b8;">*</span></div>
-      </div>
-
-      <!-- Repuestos -->
-      <div style="padding:32px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-        <div>
-          <div style="font-size:1.05rem;font-weight:800;color:#0f172a;letter-spacing:-.01em;margin-bottom:4px;">Repuestos</div>
-          <div style="color:#64748b;font-size:.85rem;line-height:1.5;">Según la tarifa vigente del fabricante</div>
-        </div>
-        <div style="font-size:1rem;font-weight:700;color:#f97316;white-space:nowrap;">A consultar</div>
-      </div>
-    </div>
-
-    <p style="text-align:center;color:#94a3b8;font-size:.75rem;margin-top:16px;">* IVA no incluido. Presupuesto definitivo tras diagnóstico in situ.</p>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section style="padding:80px 0;background:white;">
   <div style="max-width:800px;margin:0 auto;padding:0 24px;">
@@ -665,8 +657,7 @@ if (track && dots.length) {
         { q: '¿Cuánto cuesta reparar una lavadora en Pamplona?', a: 'La mayoría de reparaciones están entre 60€ y 180€ incluyendo mano de obra y piezas. Siempre damos presupuesto antes de empezar.' },
         { q: '¿Reparáis electrodomésticos Siemens en Pamplona?', a: 'Sí, somos especialistas en Siemens, Bosch y Balay en Pamplona y toda Navarra. También reparamos Miele, AEG, Electrolux, Samsung, LG, Fagor, Beko y más marcas.' },
         { q: '¿Cuánto tarda la reparación?', a: 'El 90% de los casos se resuelven en la primera visita a domicilio. Trabajamos con piezas de repuesto de calidad y un amplio stock para no hacer esperar.' },
-        { q: '¿Dais garantía en las reparaciones?', a: 'Sí, todas nuestras reparaciones incluyen garantía de 3 meses en piezas y mano de obra, sin coste adicional.' },
-        { q: '¿Trabajáis los sábados?', a: 'Sí, ofrecemos servicio técnico de lunes a sábado de 8:00 a 20:00. Los domingos y festivos no hay servicio salvo urgencias previo contacto.' },
+        { q: '¿Trabajáis festivos y fines de semana?', a: 'Sí. Disponibles los 365 días del año, incluyendo festivos y fines de semana. Un electrodoméstico averiado no entiende de calendarios.' },
         { q: '¿A qué zonas de Navarra llegáis?', a: 'Cubrimos Pamplona y toda el área metropolitana: Barañáin, Burlada, Huarte, Villava, Ansoáin, Zizur Mayor, Berriozar, Cizur, Noáin, Sarriguren y más.' },
       ].map(faq => (
         <details style="background:#f8fafc;border-radius:16px;border:1.5px solid #e2e8f0;overflow:hidden;" class="group">
