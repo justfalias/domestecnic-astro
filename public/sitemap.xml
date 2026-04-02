@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://www.servitecnafarroa.com/</loc>
     <lastmod>2026-04-02</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.servitecnafarroa.com/tecnico-hero.webp</image:loc>
+      <image:title>Técnico reparando lavadora Bosch en domicilio en Pamplona</image:title>
+      <image:caption>Técnico de Servitec Nafarroa reparando electrodoméstico a domicilio en Pamplona, Navarra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.servitecnafarroa.com/og-image.png</image:loc>
+      <image:title>Servitec Nafarroa — Reparación de electrodomésticos en Pamplona</image:title>
+      <image:caption>Servicio técnico multimarca en Pamplona y toda Navarra, 365 días al año</image:caption>
+    </image:image>
   </url>
 </urlset>
