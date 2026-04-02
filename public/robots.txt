@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.servitecnafarroa.com/sitemap.xml
+
+# AI crawlers — llms.txt provides structured content for LLM indexing
+# See: https://www.servitecnafarroa.com/llms.txt
