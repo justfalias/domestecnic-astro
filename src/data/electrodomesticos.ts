@@ -10,6 +10,7 @@ export interface Electrodomestico {
   marcas: string[]
   faq: { q: string; a: string }[]
   imgAlt: string
+  heroImg?: string
 }
 
 export const ELECTRODOMESTICOS: Electrodomestico[] = [
@@ -49,6 +50,7 @@ export const ELECTRODOMESTICOS: Electrodomestico[] = [
       },
     ],
     imgAlt: 'Técnico reparando lavadora en Pamplona',
+    heroImg: '/lavadora.webp',
   },
   {
     slug: 'lavavajillas',
@@ -86,6 +88,7 @@ export const ELECTRODOMESTICOS: Electrodomestico[] = [
       },
     ],
     imgAlt: 'Técnico reparando lavavajillas en Pamplona',
+    heroImg: '/horno.webp',
   },
   {
     slug: 'frigorifico',
@@ -160,6 +163,7 @@ export const ELECTRODOMESTICOS: Electrodomestico[] = [
       },
     ],
     imgAlt: 'Técnico reparando horno en Pamplona',
+    heroImg: '/horno.webp',
   },
   {
     slug: 'vitroceramica',
@@ -197,6 +201,7 @@ export const ELECTRODOMESTICOS: Electrodomestico[] = [
       },
     ],
     imgAlt: 'Técnico reparando vitrocerámica en Pamplona',
+    heroImg: '/horno.webp',
   },
   {
     slug: 'microondas',
@@ -234,6 +239,7 @@ export const ELECTRODOMESTICOS: Electrodomestico[] = [
       },
     ],
     imgAlt: 'Técnico reparando microondas en Pamplona',
+    heroImg: '/microondas.webp',
   },
   {
     slug: 'campana-extractora',
@@ -308,6 +314,7 @@ export const ELECTRODOMESTICOS: Electrodomestico[] = [
       },
     ],
     imgAlt: 'Técnico reparando secadora en Pamplona',
+    heroImg: '/lavadora.webp',
   },
   {
     slug: 'calentador-agua',
