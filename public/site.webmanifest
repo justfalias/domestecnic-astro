@@ -4,8 +4,8 @@
   "description": "Reparación de electrodomésticos en Pamplona y Navarra. 365 días.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#1d4ed8",
+  "background_color": "#273339",
+  "theme_color": "#e75f3c",
   "icons": [
     { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png" }
