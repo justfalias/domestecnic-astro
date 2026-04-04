@@ -21,13 +21,19 @@ const WA_URL = 'https://wa.me/34634006304?text=%C2%A1Hola!%20He%20llegado%20a%20
   .nav-dd-btn svg { transition: transform .2s; }
   .nav-dd:hover .nav-dd-btn svg { transform: rotate(180deg); }
   .nav-dd-panel {
-    position: absolute; top: calc(100% + 6px); left: 50%;
-    transform: translateX(-50%) translateY(-6px);
+    position: absolute; top: 100%; left: 50%;
+    transform: translateX(-50%) translateY(-4px);
     background: white; border: 1px solid #e2e8f0; border-radius: 16px;
-    padding: 12px; box-shadow: 0 20px 60px rgba(0,0,0,.12);
+    padding: 12px; padding-top: 18px; box-shadow: 0 20px 60px rgba(0,0,0,.12);
     opacity: 0; visibility: hidden; pointer-events: none;
     transition: opacity .18s, transform .18s, visibility .18s;
     min-width: 220px; z-index: 100;
+    /* Pseudo-bridge: cubre el hueco entre el botón y el panel */
+    margin-top: 0;
+  }
+  /* Puente invisible que conecta el botón con el panel */
+  .nav-dd-panel::before {
+    content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
   }
   .nav-dd:hover .nav-dd-panel {
     opacity: 1; visibility: visible; pointer-events: auto;
