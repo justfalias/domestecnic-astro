@@ -456,4 +456,116 @@ export const ZONAS_SEO: Zona[] = [
       },
     ],
   },
+
+  // — LOTE 5 —
+  {
+    slug: 'lodosa',
+    nombre: 'Lodosa',
+    distanciaKm: 58,
+    descripcion: 'Lodosa es una localidad de la Ribera navarra con más de 4.500 habitantes a orillas del Ebro, conocida por sus pimientos del piquillo.',
+    descripcionLarga: 'Lodosa es una localidad de la Ribera navarra situada a orillas del río Ebro, con más de 4.500 habitantes. Famosa por la producción de pimientos del piquillo con Denominación de Origen, es un núcleo con una actividad económica diversa entre agricultura e industria. En Servitec Nafarroa atendemos Lodosa para la reparación de electrodomésticos domésticos con técnicos desplazados desde Pamplona.',
+    codigoPostal: '31580',
+    faq: [
+      {
+        q: '¿Atendéis averías de electrodomésticos en Lodosa?',
+        a: 'Sí, cubrimos Lodosa y la zona de la Ribera navarra. Al estar a 58 km de Pamplona, la atención suele ser en 24-48 horas. Llámanos para concretar la cita más próxima.',
+      },
+      {
+        q: '¿Cuánto cuesta la visita en Lodosa?',
+        a: 'El diagnóstico y presupuesto es de 40 € + IVA. Para Lodosa puede aplicarse un suplemento de desplazamiento que te indicamos antes de confirmar la visita.',
+      },
+      {
+        q: '¿Reparáis frigoríficos y lavadoras en Lodosa?',
+        a: 'Sí, reparamos todo tipo de electrodomésticos: lavadoras, lavavajillas, frigoríficos, hornos, vitrocerámicas, secadoras y calentadores de agua, de todas las marcas.',
+      },
+    ],
+  },
+  {
+    slug: 'milagro',
+    nombre: 'Milagro',
+    distanciaKm: 75,
+    descripcion: 'Milagro es un municipio de la Ribera navarra con más de 3.000 habitantes, en la confluencia de los ríos Ebro y Aragón.',
+    descripcionLarga: 'Milagro se sitúa en la confluencia de los ríos Ebro y Aragón, en la Ribera navarra, con más de 3.000 habitantes. Su economía combina la agricultura de regadío con la actividad industrial. En Servitec Nafarroa atendemos Milagro y los municipios de su entorno para la reparación de electrodomésticos a domicilio, con presupuesto cerrado antes de empezar.',
+    codigoPostal: '31523',
+    faq: [
+      {
+        q: '¿Desplazáis técnicos hasta Milagro?',
+        a: 'Sí, cubrimos Milagro y la zona de la Ribera. Al estar a 75 km de Pamplona, la disponibilidad para el mismo día es más limitada; solemos atender en 24-48 horas.',
+      },
+      {
+        q: '¿Cuánto cuesta el servicio en Milagro?',
+        a: 'El diagnóstico es de 40 € + IVA. Para Milagro se aplica un suplemento de desplazamiento que te comunicamos antes de confirmar la visita, sin ningún compromiso.',
+      },
+      {
+        q: '¿Reparáis todas las marcas en Milagro?',
+        a: 'Sí, somos técnicos multimarca. Reparamos Siemens, Bosch, Balay, Miele, AEG, Samsung, LG, Beko, Fagor, Edesa y cualquier otra marca habitual.',
+      },
+    ],
+  },
+  {
+    slug: 'caparroso',
+    nombre: 'Caparroso',
+    distanciaKm: 55,
+    descripcion: 'Caparroso es un municipio de la Ribera navarra con más de 2.500 habitantes a orillas del río Aragón.',
+    descripcionLarga: 'Caparroso se sitúa en la Ribera navarra, a orillas del río Aragón, con más de 2.500 habitantes. Es un municipio con fuerte actividad agrícola e industrial que cuenta con buenas comunicaciones por la autovía A-15. En Servitec Nafarroa prestamos servicio técnico de electrodomésticos en Caparroso con desplazamiento a domicilio y presupuesto previo sin compromiso.',
+    codigoPostal: '31430',
+    faq: [
+      {
+        q: '¿Atendéis Caparroso y el entorno del río Aragón?',
+        a: 'Sí, cubrimos Caparroso y los municipios próximos de la Ribera navarra. Al estar a 55 km de Pamplona, solemos atender en 24-48 horas.',
+      },
+      {
+        q: '¿Hay recargo por desplazamiento a Caparroso?',
+        a: 'El diagnóstico es de 40 € + IVA. Para Caparroso puede aplicarse un suplemento de desplazamiento que te indicamos antes de confirmar la visita.',
+      },
+      {
+        q: '¿Reparáis hornos y vitrocerámicas en Caparroso?',
+        a: 'Sí, reparamos hornos eléctricos y de gas, vitrocerámicas y placas de inducción de todas las marcas. También lavadoras, frigoríficos, lavavajillas y calentadores.',
+      },
+    ],
+  },
+  {
+    slug: 'falces',
+    nombre: 'Falces',
+    distanciaKm: 48,
+    descripcion: 'Falces es un municipio de la Ribera navarra con más de 2.500 habitantes, en la comarca de Ribera Alta.',
+    descripcionLarga: 'Falces se sitúa en la comarca de Ribera Alta, a 48 km de Pamplona, con más de 2.500 habitantes. Su casco histórico medieval y su actividad agrícola hacen de Falces un municipio con mezcla de viviendas tradicionales y modernas. En Servitec Nafarroa atendemos Falces para la reparación de electrodomésticos a domicilio, con técnicos especializados en todas las marcas.',
+    codigoPostal: '31370',
+    faq: [
+      {
+        q: '¿Cubrís Falces y la Ribera Alta navarra?',
+        a: 'Sí, atendemos Falces y los municipios de la comarca de Ribera Alta. Al estar a 48 km de Pamplona, solemos poder atender en el mismo día o el siguiente según disponibilidad.',
+      },
+      {
+        q: '¿Cuánto cuesta la visita en Falces?',
+        a: 'El diagnóstico y presupuesto es de 40 € + IVA. Para Falces puede aplicarse un suplemento de desplazamiento que te indicamos antes de confirmar, sin compromiso.',
+      },
+      {
+        q: '¿Reparáis electrodomésticos de todas las marcas en Falces?',
+        a: 'Sí, somos técnicos multimarca. Reparamos Siemens, Bosch, Balay, Miele, AEG, Samsung, LG, Beko, Fagor, Edesa y cualquier otra marca del mercado español.',
+      },
+    ],
+  },
+  {
+    slug: 'marcilla',
+    nombre: 'Marcilla',
+    distanciaKm: 60,
+    descripcion: 'Marcilla es un municipio de la Ribera navarra con más de 2.500 habitantes, conocido por su castillo medieval y su actividad conservera.',
+    descripcionLarga: 'Marcilla es un municipio de la Ribera navarra con más de 2.500 habitantes, conocido por su imponente castillo medieval y su tradición conservera. Situado entre Tafalla y Tudela, es un núcleo con actividad agrícola e industrial consolidada. En Servitec Nafarroa atendemos Marcilla para la reparación de electrodomésticos domésticos a domicilio, con diagnóstico y presupuesto antes de empezar.',
+    codigoPostal: '31340',
+    faq: [
+      {
+        q: '¿Atendéis averías en Marcilla?',
+        a: 'Sí, cubrimos Marcilla y los municipios próximos de la Ribera. Al estar a 60 km de Pamplona, la atención suele ser en 24-48 horas. Llámanos y buscamos la cita más próxima.',
+      },
+      {
+        q: '¿Cuánto cuesta el servicio en Marcilla?',
+        a: 'El diagnóstico es de 40 € + IVA. Para Marcilla puede aplicarse un suplemento de desplazamiento que te comunicamos antes de confirmar la visita.',
+      },
+      {
+        q: '¿Reparáis lavadoras y frigoríficos en Marcilla?',
+        a: 'Sí, reparamos todo tipo de electrodomésticos: lavadoras, lavavajillas, frigoríficos, hornos, vitrocerámicas, secadoras, microondas y calentadores de agua, de todas las marcas.',
+      },
+    ],
+  },
 ]
