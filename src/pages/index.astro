@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro'
 import NavBar from '../components/NavBar.astro'
 import { ELECTRODOMESTICOS } from '../data/electrodomesticos'
 import { MARCAS_SEO } from '../data/marcas'
+import { ZONAS_SEO } from '../data/zonas'
+
+const zonaSlugs = new Map(ZONAS_SEO.map(z => [z.nombre, z.slug]))
 
 const PHONE = '634 006 304'
 const PHONE_HREF = 'tel:+34634006304'
@@ -744,9 +747,12 @@ if (track && dots.length) {
   <div style="max-width:1200px;margin:0 auto;padding:0 24px;text-align:center;">
     <p style="color:#475569;font-weight:700;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:24px;">Servicio técnico a domicilio en toda Navarra</p>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;">
-      {ZONAS.map(z => (
-        <span style="background:white;border:1.5px solid #e2e8f0;border-radius:100px;padding:7px 18px;color:#64748b;font-size:.8rem;font-weight:500;">{z}</span>
-      ))}
+      {ZONAS.map(z => {
+        const slug = zonaSlugs.get(z)
+        return slug
+          ? <a href={`/reparacion-electrodomesticos-${slug}/`} style="background:white;border:1.5px solid #e2e8f0;border-radius:100px;padding:7px 18px;color:#1d4ed8;font-size:.8rem;font-weight:600;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#1d4ed8'" onmouseout="this.style.borderColor='#e2e8f0'">{z}</a>
+          : <span style="background:white;border:1.5px solid #e2e8f0;border-radius:100px;padding:7px 18px;color:#64748b;font-size:.8rem;font-weight:500;">{z}</span>
+      })}
     </div>
   </div>
 </section>
