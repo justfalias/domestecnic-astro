@@ -1,0 +1,297 @@
+---
+import Layout from '../layouts/Layout.astro'
+import NavBar from '../components/NavBar.astro'
+
+const PHONE = '634 006 304'
+const PHONE_HREF = 'tel:+34634006304'
+const WA_URL = 'https://wa.me/34634006304?text=%C2%A1Hola!%20Tengo%20una%20aver%C3%ADa%20urgente%20en%20un%20electrodom%C3%A9stico%20y%20necesito%20un%20t%C3%A9cnico%20hoy.'
+
+const title = 'Técnico Electrodomésticos Urgente Pamplona | Mismo Día — Servitec Nafarroa'
+const description = 'Técnico de electrodomésticos urgente en Pamplona. Reparamos el mismo día lavadoras, frigoríficos, lavavajillas y más. Disponibles 365 días de 8:00 a 20:00. Llama ahora: 634 006 304.'
+const canonical = 'https://www.servitecnafarroa.com/reparacion-urgente-electrodomesticos-pamplona/'
+
+const URGENCIAS = [
+  { nombre: 'Frigorífico no enfría', icono: '🧊', desc: 'Los alimentos se estropean en horas. Máxima prioridad.' },
+  { nombre: 'Calentador sin agua caliente', icono: '🚿', desc: 'Sin agua caliente en casa. Atención urgente garantizada.' },
+  { nombre: 'Lavadora inundando', icono: '💧', desc: 'Fuga de agua activa. Acudimos de inmediato.' },
+  { nombre: 'Horno averiado', icono: '🔥', desc: 'Negocio o evento con horno parado. Mismo día.' },
+  { nombre: 'Lavavajillas sin desagüe', icono: '🍽️', desc: 'Agua estancada dentro. Solución rápida.' },
+  { nombre: 'Cualquier electrodoméstico', icono: '⚡', desc: 'Si necesitas técnico hoy, llámanos.' },
+]
+
+const faq = [
+  {
+    q: '¿Realmente podéis venir el mismo día en Pamplona?',
+    a: 'Sí, en la gran mayoría de casos. Trabajamos de 8:00 a 20:00 los 365 días del año. Llámanos por la mañana y en la mayoría de casos podemos estar en tu domicilio ese mismo día. En casos muy urgentes (frigorífico, calentador) lo priorizamos al máximo.',
+  },
+  {
+    q: '¿Cuánto cuesta una reparación urgente?',
+    a: 'El precio es el mismo que cualquier día: desplazamiento + diagnóstico + presupuesto por 40 € + IVA. No aplicamos recargo por urgencia, fin de semana ni festivo. Si aceptas el presupuesto, la mano de obra son 20 € + IVA más el repuesto si fuera necesario.',
+  },
+  {
+    q: '¿Qué hago mientras espero al técnico si el frigorífico no enfría?',
+    a: 'Si el frigorífico no enfría, coloca los alimentos más perecederos en neveras portátiles o en casa de un vecino. No abras la puerta más de lo necesario. Llámanos de inmediato para que podamos priorizar la visita.',
+  },
+  {
+    q: '¿Atendéis urgencias fuera de Pamplona?',
+    a: 'Sí, cubrimos toda la comarca de Pamplona (Barañáin, Burlada, Zizur Mayor, Huarte, Villava, Ansoáin…) con la misma rapidez. Para municipios más alejados de Navarra también atendemos, aunque con algo más de tiempo de desplazamiento.',
+  },
+  {
+    q: '¿Lleváis piezas de repuesto en el vehículo?',
+    a: 'Sí, nuestros técnicos llevan un amplio stock de las piezas más habituales. En la mayoría de averías comunes (rodamientos, resistencias, bombas, termostatos) podemos reparar en la primera visita sin esperar pedidos.',
+  },
+  {
+    q: '¿Y si la avería no tiene solución en el momento?',
+    a: 'Si necesitamos un repuesto específico que no llevamos, lo pedimos y concertamos una segunda visita lo antes posible. En ese caso solo pagas el desplazamiento de la primera visita (40 € + IVA) y la reparación completa cuando volvamos.',
+  },
+]
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.servitecnafarroa.com/#business",
+      "name": "Servitec Nafarroa",
+      "telephone": "+34634006304",
+      "url": "https://www.servitecnafarroa.com",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      "areaServed": { "@type": "City", "name": "Pamplona" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pamplona",
+        "addressRegion": "Navarra",
+        "addressCountry": "ES"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faq.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  ]
+}
+---
+
+<Layout {title} {description} {canonical}>
+<style is:global>
+  :root { --orange: #f97316; --blue: #1d4ed8; --dark: #0a0f1e; --mid: #111827; }
+  * { box-sizing: border-box; }
+  .btn-primary { display:inline-flex;align-items:center;gap:10px;background:#c2410c;color:white;font-weight:700;padding:16px 28px;border-radius:12px;font-size:1rem;text-decoration:none;transition:all .2s;box-shadow:0 6px 20px rgba(194,65,12,.35); }
+  .btn-primary:hover { background:#9a3412;transform:translateY(-2px); }
+  .btn-wa { display:inline-flex;align-items:center;gap:10px;background:#15803d;color:white;font-weight:700;padding:16px 28px;border-radius:12px;font-size:1rem;text-decoration:none;transition:all .2s;box-shadow:0 6px 20px rgba(21,128,61,.35); }
+  .btn-wa:hover { background:#166534;transform:translateY(-2px); }
+  .section-label { display:block;color:#c2410c;font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px; }
+  @media (max-width:768px) {
+    .cta-row { flex-direction:column !important; }
+    .cta-row a { width:100% !important; justify-content:center !important; }
+    .urgencias-grid { grid-template-columns:1fr !important; }
+    .pasos-grid { grid-template-columns:1fr !important; }
+    .faq-cols { grid-template-columns:1fr !important; }
+  }
+</style>
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+<NavBar />
+
+<!-- HERO -->
+<section style="background:#0a0f1e;padding:80px 24px;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.02) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;"></div>
+  <!-- Banda roja urgencia -->
+  <div style="position:absolute;top:0;left:0;right:0;background:#c2410c;padding:10px 24px;text-align:center;">
+    <span style="color:white;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;">
+      ⚡ Servicio urgente disponible ahora — Llama al {PHONE}
+    </span>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;position:relative;padding-top:32px;">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(194,65,12,.15);border:1px solid rgba(194,65,12,.35);border-radius:100px;padding:6px 16px;margin-bottom:28px;">
+      <span style="color:#fb923c;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Mismo día · Pamplona y Navarra · 365 días</span>
+    </div>
+    <h1 style="font-size:clamp(2rem,5vw,3.75rem);font-weight:900;color:white;line-height:1.1;letter-spacing:-.03em;margin-bottom:20px;max-width:800px;">
+      Técnico de electrodomésticos<br/>urgente en Pamplona
+    </h1>
+    <p style="font-size:1.1rem;color:#94a3b8;line-height:1.8;margin-bottom:16px;max-width:560px;">
+      ¿Electrodoméstico averiado y necesitas solución hoy? Llamamos en minutos y acudimos a tu domicilio el mismo día.
+    </p>
+    <p style="font-size:.95rem;color:#64748b;line-height:1.7;margin-bottom:40px;max-width:520px;">
+      Sin recargo por urgencia. El mismo precio cualquier día del año, incluidos festivos y fines de semana.
+    </p>
+    <!-- CTAs grandes -->
+    <div class="cta-row" style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;">
+      <a href={PHONE_HREF} class="btn-primary" style="font-size:1.1rem;padding:20px 36px;" data-cta="llamar" data-location="hero-urgente">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.66 18l.26-1.08z"/></svg>
+        Llamar ahora — {PHONE}
+      </a>
+      <a href={WA_URL} target="_blank" rel="noopener" class="btn-wa" style="font-size:1.1rem;padding:20px 36px;" data-cta="whatsapp" data-location="hero-urgente">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        WhatsApp urgente
+      </a>
+    </div>
+    <!-- Badges -->
+    <div style="display:flex;gap:32px;flex-wrap:wrap;">
+      {[
+        ['Sin recargo', 'Mismo precio siempre'],
+        ['Mismo día', 'En la mayoría de casos'],
+        ['365 días', 'De 8:00 a 20:00'],
+        ['4,7 ★', '207 opiniones Google'],
+      ].map(([val, label]) => (
+        <div>
+          <div style="color:white;font-weight:900;font-size:1.05rem;">{val}</div>
+          <div style="color:#64748b;font-size:.78rem;">{label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- AVERÍAS URGENTES -->
+<section style="padding:80px 24px;background:white;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <span class="section-label">Averías que atendemos hoy</span>
+    <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;color:#0a0f1e;letter-spacing:-.03em;margin-bottom:40px;">
+      ¿Cuál es tu urgencia?
+    </h2>
+    <div class="urgencias-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px;">
+      {URGENCIAS.map(u => (
+        <div style="border:2px solid #e2e8f0;border-radius:20px;padding:28px 24px;transition:border-color .2s;">
+          <div style="font-size:2rem;margin-bottom:12px;">{u.icono}</div>
+          <p style="font-weight:800;color:#0f172a;font-size:1rem;margin-bottom:8px;">{u.nombre}</p>
+          <p style="color:#64748b;font-size:.875rem;line-height:1.6;">{u.desc}</p>
+        </div>
+      ))}
+    </div>
+    <div style="background:#fef2f2;border:2px solid #fecaca;border-radius:20px;padding:28px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
+      <div>
+        <p style="font-weight:800;color:#991b1b;font-size:1.05rem;margin-bottom:4px;">¿Tu avería no está en la lista?</p>
+        <p style="color:#b91c1c;font-size:.9rem;">Reparamos cualquier electrodoméstico doméstico. Llámanos y te decimos si podemos ayudarte hoy.</p>
+      </div>
+      <a href={PHONE_HREF} class="btn-primary" data-cta="llamar" data-location="urgencias">Llamar: {PHONE}</a>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section style="padding:80px 24px;background:#f8fafc;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <span class="section-label">Proceso</span>
+    <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;color:#0a0f1e;letter-spacing:-.03em;margin-bottom:48px;">
+      De la llamada a la reparación en el mismo día
+    </h2>
+    <div class="pasos-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      {[
+        ['1', 'Llamas o escribes', 'Nos cuentas la avería. En minutos confirmamos disponibilidad para el mismo día.', '#eff6ff', '#1d4ed8'],
+        ['2', 'Fijamos la hora', 'Te damos una franja horaria de llegada. Sin esperas de horas de margen.', '#fef3c7', '#d97706'],
+        ['3', 'Diagnosticamos', 'El técnico revisa el electrodoméstico y te da un presupuesto cerrado antes de tocar nada.', '#f0fdf4', '#16a34a'],
+        ['4', 'Reparamos', 'Si aceptas, reparamos en el momento. El 90% de averías se resuelven en la primera visita.', '#fdf4ff', '#9333ea'],
+      ].map(([num, tit, desc, bg, col]) => (
+        <div style={`background:${bg};border-radius:20px;padding:28px 24px;position:relative;`}>
+          <div style={`font-size:2.5rem;font-weight:900;color:${col};opacity:.2;position:absolute;top:16px;right:20px;line-height:1;`}>{num}</div>
+          <div style={`width:36px;height:36px;background:${col};border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;`}>
+            <span style="color:white;font-weight:900;font-size:.9rem;">{num}</span>
+          </div>
+          <p style={`font-weight:800;color:#0f172a;margin-bottom:8px;font-size:.95rem;`}>{tit}</p>
+          <p style="color:#475569;font-size:.875rem;line-height:1.7;">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- PRECIO -->
+<section style="padding:80px 24px;background:white;">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <span class="section-label">Precios</span>
+    <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;color:#0a0f1e;letter-spacing:-.03em;margin-bottom:16px;">
+      Sin recargo por urgencia.<br/>Mismo precio siempre.
+    </h2>
+    <p style="color:#64748b;font-size:1rem;line-height:1.8;margin-bottom:48px;max-width:560px;margin-left:auto;margin-right:auto;">
+      Festivo, domingo, primera hora de la mañana o última de la tarde — el precio no cambia. Lo que ves es lo que pagas.
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;" class="precio-grid">
+      {[
+        ['40 € + IVA', 'Desplazamiento + diagnóstico + presupuesto', '#eff6ff', '#1d4ed8'],
+        ['20 € + IVA', 'Mano de obra de reparación', '#f0fdf4', '#16a34a'],
+        ['A consultar', 'Piezas de repuesto (según fabricante)', '#fef3c7', '#d97706'],
+      ].map(([precio, concepto, bg, col]) => (
+        <div style={`background:${bg};border-radius:16px;padding:24px;`}>
+          <p style={`font-size:1.4rem;font-weight:900;color:${col};margin-bottom:8px;`}>{precio}</p>
+          <p style="color:#475569;font-size:.875rem;line-height:1.6;">{concepto}</p>
+        </div>
+      ))}
+    </div>
+    <p style="color:#94a3b8;font-size:.8rem;">Si decides no reparar tras el diagnóstico, solo pagas el desplazamiento.</p>
+  </div>
+</section>
+
+<style is:global>
+  @media (max-width:768px) {
+    .precio-grid { grid-template-columns:1fr !important; }
+  }
+</style>
+
+<!-- FAQ -->
+<section style="padding:80px 24px;background:#f8fafc;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <span class="section-label">Preguntas frecuentes</span>
+    <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;color:#0a0f1e;letter-spacing:-.03em;margin-bottom:40px;">
+      Sobre el servicio urgente
+    </h2>
+    <div class="faq-cols" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+      {faq.map(f => (
+        <div style="background:white;border:1px solid #e2e8f0;border-radius:16px;padding:28px;">
+          <p style="font-weight:800;color:#0f172a;margin-bottom:12px;font-size:.95rem;">{f.q}</p>
+          <p style="color:#64748b;font-size:.875rem;line-height:1.75;">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section style="padding:80px 24px;background:var(--dark);text-align:center;">
+  <div style="max-width:600px;margin:0 auto;">
+    <p style="color:#c2410c;font-weight:700;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;">⚡ Disponible ahora</p>
+    <h2 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;color:white;letter-spacing:-.03em;margin-bottom:16px;">
+      ¿Necesitas un técnico<br/>en Pamplona hoy?
+    </h2>
+    <p style="color:#94a3b8;margin-bottom:36px;font-size:1rem;">
+      Llámanos o escríbenos ahora. Confirmamos disponibilidad en minutos.
+    </p>
+    <div class="cta-row" style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
+      <a href={PHONE_HREF} class="btn-primary" style="font-size:1.05rem;padding:18px 32px;" data-cta="llamar" data-location="cta-final-urgente">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.66 18l.26-1.08z"/></svg>
+        Llamar ahora — {PHONE}
+      </a>
+      <a href={WA_URL} target="_blank" rel="noopener" class="btn-wa" style="font-size:1.05rem;padding:18px 32px;" data-cta="whatsapp" data-location="cta-final-urgente">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        WhatsApp urgente
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#020617;padding:32px 24px;text-align:center;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="margin-bottom:16px;">
+      <img src="/servitec-nafarroa-logo-white.png" alt="Servitec Nafarroa" height="36" style="height:36px;width:auto;display:block;margin:0 auto;" />
+      <p style="color:#94a3b8;font-size:.8rem;margin-top:4px;">Reparación urgente de electrodomésticos · Pamplona, Navarra</p>
+    </div>
+    <div style="display:flex;justify-content:center;gap:20px;margin-bottom:16px;flex-wrap:wrap;">
+      <a href={PHONE_HREF} style="color:#cbd5e1;font-size:.875rem;text-decoration:none;" data-cta="llamar" data-location="footer">{PHONE}</a>
+      <a href={WA_URL} target="_blank" rel="noopener" style="color:#cbd5e1;font-size:.875rem;text-decoration:none;" data-cta="whatsapp" data-location="footer">WhatsApp</a>
+      <a href="/" style="color:#cbd5e1;font-size:.875rem;text-decoration:none;">← Inicio</a>
+    </div>
+    <p style="color:#64748b;font-size:.75rem;">© {new Date().getFullYear()} Servitec Nafarroa · Todos los derechos reservados</p>
+  </div>
+</footer>
+</Layout>
