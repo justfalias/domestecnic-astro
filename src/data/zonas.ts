@@ -568,4 +568,116 @@ export const ZONAS_SEO: Zona[] = [
       },
     ],
   },
+
+  // — LOTE 6 —
+  {
+    slug: 'alsasua',
+    nombre: 'Alsasua',
+    distanciaKm: 55,
+    descripcion: 'Alsasua es la localidad más poblada de la comarca de Sakana, con más de 7.000 habitantes en el norte de Navarra.',
+    descripcionLarga: 'Alsasua-Altsasu es la capital de la comarca de Sakana y el núcleo urbano más importante del norte de Navarra, con más de 7.000 habitantes. Situada en un cruce estratégico de comunicaciones entre Pamplona, el País Vasco y Gipuzkoa, cuenta con una fuerte actividad industrial y comercial. En Servitec Nafarroa atendemos Alsasua y la comarca de Sakana para la reparación de todo tipo de electrodomésticos a domicilio.',
+    codigoPostal: '31800',
+    faq: [
+      {
+        q: '¿Atendéis Alsasua y la comarca de Sakana?',
+        a: 'Sí, cubrimos Alsasua y los municipios de la comarca de Sakana. Al estar a 55 km de Pamplona, solemos poder atender en 24-48 horas. Llámanos para concretar la visita.',
+      },
+      {
+        q: '¿Cuánto cuesta la visita a domicilio en Alsasua?',
+        a: 'El diagnóstico y presupuesto es de 40 € + IVA. Para Alsasua puede aplicarse un suplemento de desplazamiento que te indicamos antes de confirmar la visita, sin compromiso.',
+      },
+      {
+        q: '¿Reparáis electrodomésticos de todas las marcas en Alsasua?',
+        a: 'Sí, somos técnicos multimarca. Reparamos Siemens, Bosch, Balay, Miele, AEG, Samsung, LG, Beko, Fagor, Edesa y cualquier otra marca habitual en el mercado español.',
+      },
+    ],
+  },
+  {
+    slug: 'irurtzun',
+    nombre: 'Irurtzun',
+    distanciaKm: 25,
+    descripcion: 'Irurtzun es un municipio de la comarca de Aranguren con más de 2.500 habitantes, puerta de entrada al Pirineo navarro.',
+    descripcionLarga: 'Irurtzun se sitúa en la comarca de Aranguren, a 25 km de Pamplona por la autovía A-15, siendo la puerta de entrada natural hacia los valles pirenaicos navarros. Con más de 2.500 habitantes y un importante polígono industrial, es un municipio con buenas comunicaciones. En Servitec Nafarroa atendemos Irurtzun con rapidez gracias a su proximidad a Pamplona, pudiendo dar servicio el mismo día en la mayoría de casos.',
+    codigoPostal: '31170',
+    faq: [
+      {
+        q: '¿Podéis venir el mismo día a Irurtzun?',
+        a: 'Sí, en la mayoría de casos. Irurtzun está a 25 km de Pamplona y tiene excelente acceso por la A-15. Llámanos y comprobamos disponibilidad para el mismo día.',
+      },
+      {
+        q: '¿Cuánto cuesta la visita en Irurtzun?',
+        a: 'El diagnóstico y presupuesto es de 40 € + IVA. Para Irurtzun puede aplicarse un pequeño suplemento de desplazamiento que te indicamos antes de confirmar.',
+      },
+      {
+        q: '¿Reparáis calentadores y termos en Irurtzun?',
+        a: 'Sí, reparamos calentadores de agua eléctricos y de gas, termos y cualquier electrodoméstico doméstico. Para los de gas también revisamos la seguridad de la instalación.',
+      },
+    ],
+  },
+  {
+    slug: 'lekunberri',
+    nombre: 'Lekunberri',
+    distanciaKm: 35,
+    descripcion: 'Lekunberri es la capital del Valle de Larráun con más de 1.500 habitantes, en la Navarra húmeda prepirenaica.',
+    descripcionLarga: 'Lekunberri es la capital del Valle de Larráun, en la Navarra húmeda prepirenaica, con más de 1.500 habitantes. Conocida como puerta del Pirineo navarro, es un destino turístico y residencial con creciente demanda de servicios de calidad. En Servitec Nafarroa desplazamos técnicos a Lekunberri y los valles del entorno para la reparación de electrodomésticos a domicilio.',
+    codigoPostal: '31870',
+    faq: [
+      {
+        q: '¿Cubrís Lekunberri y el Valle de Larráun?',
+        a: 'Sí, atendemos Lekunberri y los municipios del Valle de Larráun. Al estar a 35 km de Pamplona, solemos poder atender en el mismo día o el siguiente.',
+      },
+      {
+        q: '¿Cuánto cuesta la visita en Lekunberri?',
+        a: 'El diagnóstico y presupuesto es de 40 € + IVA. Para Lekunberri puede aplicarse un suplemento de desplazamiento que te comunicamos antes de confirmar la visita.',
+      },
+      {
+        q: '¿Reparáis electrodomésticos de todas las marcas en Lekunberri?',
+        a: 'Sí, somos técnicos multimarca y reparamos Siemens, Bosch, Balay, Miele, AEG, Samsung, LG, Beko, Fagor y cualquier otra marca habitual.',
+      },
+    ],
+  },
+  {
+    slug: 'baztan',
+    nombre: 'Baztan',
+    distanciaKm: 60,
+    descripcion: 'Baztan es el municipio más extenso de Navarra, con más de 7.000 habitantes repartidos entre Elizondo y otros núcleos del valle.',
+    descripcionLarga: 'El Valle del Baztán es el municipio más extenso de Navarra, con más de 7.000 habitantes repartidos entre Elizondo —su capital— y otros quince núcleos. Situado en la frontera con Francia, es una de las zonas más verdes y singulares del Pirineo occidental. En Servitec Nafarroa atendemos el Valle del Baztán para la reparación de electrodomésticos a domicilio, con técnicos desplazados desde Pamplona.',
+    codigoPostal: '31700',
+    faq: [
+      {
+        q: '¿Cubrís el Valle del Baztán y sus núcleos?',
+        a: 'Sí, atendemos el Valle del Baztán, incluyendo Elizondo y el resto de núcleos del municipio. Al estar a 60 km de Pamplona, la atención suele ser en 24-48 horas.',
+      },
+      {
+        q: '¿Cuánto cuesta la visita en Baztán?',
+        a: 'El diagnóstico es de 40 € + IVA. Para el Valle del Baztán se aplica un suplemento de desplazamiento que te comunicamos antes de confirmar la visita, sin compromiso.',
+      },
+      {
+        q: '¿Reparáis lavadoras y frigoríficos en el Baztán?',
+        a: 'Sí, reparamos todo tipo de electrodomésticos: lavadoras, lavavajillas, frigoríficos, hornos, vitrocerámicas, secadoras y calentadores de agua, de todas las marcas.',
+      },
+    ],
+  },
+  {
+    slug: 'elizondo',
+    nombre: 'Elizondo',
+    distanciaKm: 60,
+    descripcion: 'Elizondo es la capital del Valle del Baztán, con más de 3.500 habitantes en el corazón del Pirineo navarro occidental.',
+    descripcionLarga: 'Elizondo es la capital y el núcleo urbano principal del Valle del Baztán, con más de 3.500 habitantes. Situada en el corazón del Pirineo occidental navarro, es un centro de servicios para todo el valle. En Servitec Nafarroa atendemos Elizondo para la reparación de electrodomésticos a domicilio, con diagnóstico in situ y presupuesto cerrado antes de empezar cualquier reparación.',
+    codigoPostal: '31700',
+    faq: [
+      {
+        q: '¿Atendéis averías de electrodomésticos en Elizondo?',
+        a: 'Sí, cubrimos Elizondo y el entorno del Valle del Baztán. Al estar a 60 km de Pamplona, solemos poder atender en 24-48 horas. Llámanos para la cita más próxima.',
+      },
+      {
+        q: '¿Hay recargo por desplazamiento a Elizondo?',
+        a: 'El diagnóstico es de 40 € + IVA. Para Elizondo se aplica un suplemento de desplazamiento que te indicamos antes de confirmar la visita, sin ningún compromiso.',
+      },
+      {
+        q: '¿Reparáis electrodomésticos de gama alta en Elizondo?',
+        a: 'Sí, tenemos experiencia con marcas premium como Miele, Siemens iQ700 y AEG. Reparamos cualquier electrodoméstico doméstico independientemente de la marca o el modelo.',
+      },
+    ],
+  },
 ]
