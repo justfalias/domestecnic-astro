@@ -367,4 +367,24 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- Lote 7: Valle del Bidasoa -->
+  <url>
+    <loc>https://www.servitecnafarroa.com/reparacion-electrodomesticos-lesaka/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.servitecnafarroa.com/reparacion-electrodomesticos-bera/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.servitecnafarroa.com/reparacion-electrodomesticos-santesteban/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

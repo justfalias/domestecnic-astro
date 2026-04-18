@@ -680,4 +680,72 @@ export const ZONAS_SEO: Zona[] = [
       },
     ],
   },
+
+  // — LOTE 7 —
+  {
+    slug: 'lesaka',
+    nombre: 'Lesaka',
+    distanciaKm: 65,
+    descripcion: 'Lesaka es una villa del Valle del Bidasoa con más de 3.000 habitantes, en la frontera norte de Navarra.',
+    descripcionLarga: 'Lesaka es una de las cinco villas del Valle del Bidasoa, situada en el extremo norte de Navarra, a pocos kilómetros de la frontera con Francia. Con más de 3.000 habitantes, conserva su carácter de villa histórica con una economía mixta entre industria y servicios. En Servitec Nafarroa atendemos Lesaka y el Valle del Bidasoa para la reparación de electrodomésticos a domicilio.',
+    codigoPostal: '31770',
+    faq: [
+      {
+        q: '¿Cubrís Lesaka y el Valle del Bidasoa?',
+        a: 'Sí, atendemos Lesaka y los municipios del Valle del Bidasoa. Al estar a 65 km de Pamplona, la atención suele ser en 24-48 horas. Llámanos para concretar la cita.',
+      },
+      {
+        q: '¿Cuánto cuesta la visita en Lesaka?',
+        a: 'El diagnóstico es de 40 € + IVA. Para Lesaka se aplica un suplemento de desplazamiento que te comunicamos antes de confirmar la visita, sin compromiso.',
+      },
+      {
+        q: '¿Reparáis electrodomésticos de todas las marcas en Lesaka?',
+        a: 'Sí, somos técnicos multimarca. Reparamos Siemens, Bosch, Balay, Miele, AEG, Samsung, LG, Beko, Fagor y cualquier otra marca habitual.',
+      },
+    ],
+  },
+  {
+    slug: 'bera',
+    nombre: 'Bera',
+    distanciaKm: 70,
+    descripcion: 'Bera de Bidasoa es una villa del norte de Navarra con más de 4.000 habitantes, la más extensa del Valle del Bidasoa.',
+    descripcionLarga: 'Bera de Bidasoa es la villa más extensa del Valle del Bidasoa y una de las más pobladas del norte de Navarra, con más de 4.000 habitantes. Limita con Gipuzkoa y con Francia, lo que le otorga un carácter fronterizo singular. En Servitec Nafarroa prestamos servicio técnico de electrodomésticos en Bera con técnicos desplazados desde Pamplona, con diagnóstico a domicilio y presupuesto previo.',
+    codigoPostal: '31780',
+    faq: [
+      {
+        q: '¿Atendéis averías en Bera de Bidasoa?',
+        a: 'Sí, cubrimos Bera y el entorno del Valle del Bidasoa. Al estar a 70 km de Pamplona, la atención suele ser en 24-48 horas. Llámanos y buscamos la fecha más próxima.',
+      },
+      {
+        q: '¿Hay recargo por desplazamiento a Bera?',
+        a: 'El diagnóstico es de 40 € + IVA. Para Bera se aplica un suplemento de desplazamiento que te indicamos antes de confirmar la visita.',
+      },
+      {
+        q: '¿Reparáis lavadoras y frigoríficos en Bera?',
+        a: 'Sí, reparamos todo tipo de electrodomésticos: lavadoras, lavavajillas, frigoríficos, hornos, vitrocerámicas, secadoras, microondas y calentadores, de todas las marcas.',
+      },
+    ],
+  },
+  {
+    slug: 'santesteban',
+    nombre: 'Santesteban',
+    distanciaKm: 50,
+    descripcion: 'Santesteban es la capital del Valle del Bidasoa navarro con más de 1.500 habitantes, en la Navarra húmeda.',
+    descripcionLarga: 'Santesteban-Doneztebe es la capital administrativa del Valle del Bidasoa navarro, con más de 1.500 habitantes. Situada a 50 km de Pamplona por la NA-121, es el centro de servicios de la comarca. En Servitec Nafarroa atendemos Santesteban y los municipios del entorno para la reparación de electrodomésticos a domicilio, cerrando así la cobertura de toda la Navarra húmeda.',
+    codigoPostal: '31740',
+    faq: [
+      {
+        q: '¿Cubrís Santesteban y el Valle del Bidasoa?',
+        a: 'Sí, cubrimos Santesteban y los municipios del Valle del Bidasoa. Al estar a 50 km de Pamplona, podemos atender en el mismo día o el siguiente según disponibilidad.',
+      },
+      {
+        q: '¿Cuánto cuesta la visita en Santesteban?',
+        a: 'El diagnóstico y presupuesto es de 40 € + IVA. Para Santesteban puede aplicarse un suplemento de desplazamiento que te indicamos antes de confirmar, sin compromiso.',
+      },
+      {
+        q: '¿Reparáis electrodomésticos de todas las marcas en Santesteban?',
+        a: 'Sí, somos técnicos multimarca. Reparamos Siemens, Bosch, Balay, Miele, AEG, Samsung, LG, Beko, Fagor, Edesa y cualquier otra marca del mercado español.',
+      },
+    ],
+  },
 ]
